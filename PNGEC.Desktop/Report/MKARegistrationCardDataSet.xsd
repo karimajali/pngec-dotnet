@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="MKARegistrationCardDataSet" targetNamespace="http://tempuri.org/MKARegistrationCardDataSet.xsd" xmlns:mstns="http://tempuri.org/MKARegistrationCardDataSet.xsd" xmlns="http://tempuri.org/MKARegistrationCardDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="MKARegistrationCardDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="MKARegistrationCardDataSet" msprop:Generator_DataSetName="MKARegistrationCardDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tblMKARegistrationCard" msprop:Generator_RowEvHandlerName="tblMKARegistrationCardRowChangeEventHandler" msprop:Generator_RowDeletedName="tblMKARegistrationCardRowDeleted" msprop:Generator_RowDeletingName="tblMKARegistrationCardRowDeleting" msprop:Generator_RowEvArgName="tblMKARegistrationCardRowChangeEvent" msprop:Generator_TablePropName="tblMKARegistrationCard" msprop:Generator_RowChangedName="tblMKARegistrationCardRowChanged" msprop:Generator_RowChangingName="tblMKARegistrationCardRowChanging" msprop:Generator_TableClassName="tblMKARegistrationCardDataTable" msprop:Generator_RowClassName="tblMKARegistrationCardRow" msprop:Generator_TableVarName="tabletblMKARegistrationCard" msprop:Generator_UserTableName="tblMKARegistrationCard">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RegistrationCardNo" msprop:Generator_ColumnPropNameInRow="RegistrationCardNo" msprop:Generator_ColumnPropNameInTable="RegistrationCardNoColumn" msprop:Generator_ColumnVarNameInTable="columnRegistrationCardNo" msprop:Generator_UserColumnName="RegistrationCardNo" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblMKASubRegistrationCard" msprop:Generator_RowEvHandlerName="tblMKASubRegistrationCardRowChangeEventHandler" msprop:Generator_RowDeletedName="tblMKASubRegistrationCardRowDeleted" msprop:Generator_RowDeletingName="tblMKASubRegistrationCardRowDeleting" msprop:Generator_RowEvArgName="tblMKASubRegistrationCardRowChangeEvent" msprop:Generator_TablePropName="tblMKASubRegistrationCard" msprop:Generator_RowChangedName="tblMKASubRegistrationCardRowChanged" msprop:Generator_RowChangingName="tblMKASubRegistrationCardRowChanging" msprop:Generator_TableClassName="tblMKASubRegistrationCardDataTable" msprop:Generator_RowClassName="tblMKASubRegistrationCardRow" msprop:Generator_TableVarName="tabletblMKASubRegistrationCard" msprop:Generator_UserTableName="tblMKASubRegistrationCard">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RegistrationCardNo" msprop:Generator_ColumnPropNameInRow="RegistrationCardNo" msprop:Generator_ColumnPropNameInTable="RegistrationCardNoColumn" msprop:Generator_ColumnVarNameInTable="columnRegistrationCardNo" msprop:Generator_UserColumnName="RegistrationCardNo" type="xs:string" minOccurs="0" />
+              <xs:element name="Ward" msprop:Generator_ColumnPropNameInRow="Ward" msprop:Generator_ColumnPropNameInTable="WardColumn" msprop:Generator_ColumnVarNameInTable="columnWard" msprop:Generator_UserColumnName="Ward" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="tblRegistrationCard_RegistrationCardNo_PK_tblSubRegistrationCard_RegistrationCardNo_FK" msdata:parent="tblMKARegistrationCard" msdata:child="tblMKASubRegistrationCard" msdata:parentkey="RegistrationCardNo" msdata:childkey="RegistrationCardNo" msprop:Generator_UserParentTable="tblMKARegistrationCard" msprop:Generator_UserChildTable="tblMKASubRegistrationCard" msprop:Generator_RelationVarName="relationtblRegistrationCard_RegistrationCardNo_PK_tblSubRegistrationCard_RegistrationCardNo_FK" msprop:Generator_ChildPropName="GettblMKASubRegistrationCardRows" msprop:Generator_ParentPropName="tblMKARegistrationCardRow" msprop:Generator_UserRelationName="tblRegistrationCard_RegistrationCardNo_PK_tblSubRegistrationCard_RegistrationCardNo_FK" />
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>

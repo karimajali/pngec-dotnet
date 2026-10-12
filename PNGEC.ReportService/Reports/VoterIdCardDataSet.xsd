@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="VoterIdCardDataSet" targetNamespace="http://tempuri.org/VoterIdCardDataSet.xsd" xmlns:mstns="http://tempuri.org/VoterIdCardDataSet.xsd" xmlns="http://tempuri.org/VoterIdCardDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="VoterIdCardDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="VoterIdCardDataSet" msprop:Generator_UserDSName="VoterIdCardDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tblVoterIdCard" msprop:Generator_TableClassName="tblVoterIdCardDataTable" msprop:Generator_TableVarName="tabletblVoterIdCard" msprop:Generator_TablePropName="tblVoterIdCard" msprop:Generator_RowDeletingName="tblVoterIdCardRowDeleting" msprop:Generator_RowChangingName="tblVoterIdCardRowChanging" msprop:Generator_RowEvHandlerName="tblVoterIdCardRowChangeEventHandler" msprop:Generator_RowDeletedName="tblVoterIdCardRowDeleted" msprop:Generator_UserTableName="tblVoterIdCard" msprop:Generator_RowChangedName="tblVoterIdCardRowChanged" msprop:Generator_RowEvArgName="tblVoterIdCardRowChangeEvent" msprop:Generator_RowClassName="tblVoterIdCardRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ElectorId" msprop:Generator_ColumnVarNameInTable="columnElectorId" msprop:Generator_ColumnPropNameInRow="ElectorId" msprop:Generator_ColumnPropNameInTable="ElectorIdColumn" msprop:Generator_UserColumnName="ElectorId" type="xs:string" minOccurs="0" />
+              <xs:element name="Seq" msprop:Generator_ColumnVarNameInTable="columnSeq" msprop:Generator_ColumnPropNameInRow="Seq" msprop:Generator_ColumnPropNameInTable="SeqColumn" msprop:Generator_UserColumnName="Seq" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblSubVoterIdCard" msprop:Generator_TableClassName="tblSubVoterIdCardDataTable" msprop:Generator_TableVarName="tabletblSubVoterIdCard" msprop:Generator_TablePropName="tblSubVoterIdCard" msprop:Generator_RowDeletingName="tblSubVoterIdCardRowDeleting" msprop:Generator_RowChangingName="tblSubVoterIdCardRowChanging" msprop:Generator_RowEvHandlerName="tblSubVoterIdCardRowChangeEventHandler" msprop:Generator_RowDeletedName="tblSubVoterIdCardRowDeleted" msprop:Generator_UserTableName="tblSubVoterIdCard" msprop:Generator_RowChangedName="tblSubVoterIdCardRowChanged" msprop:Generator_RowEvArgName="tblSubVoterIdCardRowChangeEvent" msprop:Generator_RowClassName="tblSubVoterIdCardRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ElectorId" msprop:Generator_ColumnVarNameInTable="columnElectorId" msprop:Generator_ColumnPropNameInRow="ElectorId" msprop:Generator_ColumnPropNameInTable="ElectorIdColumn" msprop:Generator_UserColumnName="ElectorId" type="xs:string" minOccurs="0" />
+              <xs:element name="LName" msprop:Generator_ColumnVarNameInTable="columnLName" msprop:Generator_ColumnPropNameInRow="LName" msprop:Generator_ColumnPropNameInTable="LNameColumn" msprop:Generator_UserColumnName="LName" type="xs:string" minOccurs="0" />
+              <xs:element name="FName" msprop:Generator_ColumnVarNameInTable="columnFName" msprop:Generator_ColumnPropNameInRow="FName" msprop:Generator_ColumnPropNameInTable="FNameColumn" msprop:Generator_UserColumnName="FName" type="xs:string" minOccurs="0" />
+              <xs:element name="Gen" msprop:Generator_ColumnVarNameInTable="columnGen" msprop:Generator_ColumnPropNameInRow="Gen" msprop:Generator_ColumnPropNameInTable="GenColumn" msprop:Generator_UserColumnName="Gen" type="xs:string" minOccurs="0" />
+              <xs:element name="BDate" msprop:Generator_ColumnVarNameInTable="columnBDate" msprop:Generator_ColumnPropNameInRow="BDate" msprop:Generator_ColumnPropNameInTable="BDateColumn" msprop:Generator_UserColumnName="BDate" type="xs:string" minOccurs="0" />
+              <xs:element name="WithDisability" msprop:Generator_ColumnVarNameInTable="columnWithDisability" msprop:Generator_ColumnPropNameInRow="WithDisability" msprop:Generator_ColumnPropNameInTable="WithDisabilityColumn" msprop:Generator_UserColumnName="WithDisability" type="xs:string" minOccurs="0" />
+              <xs:element name="Province" msprop:Generator_ColumnVarNameInTable="columnProvince" msprop:Generator_ColumnPropNameInRow="Province" msprop:Generator_ColumnPropNameInTable="ProvinceColumn" msprop:Generator_UserColumnName="Province" type="xs:string" minOccurs="0" />
+              <xs:element name="District" msprop:Generator_ColumnVarNameInTable="columnDistrict" msprop:Generator_ColumnPropNameInRow="District" msprop:Generator_ColumnPropNameInTable="DistrictColumn" msprop:Generator_UserColumnName="District" type="xs:string" minOccurs="0" />
+              <xs:element name="LLG" msprop:Generator_ColumnVarNameInTable="columnLLG" msprop:Generator_ColumnPropNameInRow="LLG" msprop:Generator_ColumnPropNameInTable="LLGColumn" msprop:Generator_UserColumnName="LLG" type="xs:string" minOccurs="0" />
+              <xs:element name="Ward" msprop:Generator_ColumnVarNameInTable="columnWard" msprop:Generator_ColumnPropNameInRow="Ward" msprop:Generator_ColumnPropNameInTable="WardColumn" msprop:Generator_UserColumnName="Ward" type="xs:string" minOccurs="0" />
+              <xs:element name="Location" msprop:Generator_ColumnVarNameInTable="columnLocation" msprop:Generator_ColumnPropNameInRow="Location" msprop:Generator_ColumnPropNameInTable="LocationColumn" msprop:Generator_UserColumnName="Location" type="xs:string" minOccurs="0" />
+              <xs:element name="Seq" msprop:Generator_ColumnVarNameInTable="columnSeq" msprop:Generator_ColumnPropNameInRow="Seq" msprop:Generator_ColumnPropNameInTable="SeqColumn" msprop:Generator_UserColumnName="Seq" type="xs:int" minOccurs="0" />
+              <xs:element name="NID" msprop:Generator_ColumnVarNameInTable="columnNID" msprop:Generator_ColumnPropNameInRow="NID" msprop:Generator_ColumnPropNameInTable="NIDColumn" msprop:Generator_UserColumnName="NID" type="xs:string" minOccurs="0" />
+              <xs:element name="Occupation" msprop:Generator_ColumnVarNameInTable="columnOccupation" msprop:Generator_ColumnPropNameInRow="Occupation" msprop:Generator_ColumnPropNameInTable="OccupationColumn" msprop:Generator_UserColumnName="Occupation" type="xs:string" minOccurs="0" />
+              <xs:element name="Religion" msprop:Generator_ColumnVarNameInTable="columnReligion" msprop:Generator_ColumnPropNameInRow="Religion" msprop:Generator_ColumnPropNameInTable="ReligionColumn" msprop:Generator_UserColumnName="Religion" type="xs:string" minOccurs="0" />
+              <xs:element name="WardNo" msprop:Generator_ColumnVarNameInTable="columnWardNo" msprop:Generator_ColumnPropNameInRow="WardNo" msprop:Generator_ColumnPropNameInTable="WardNoColumn" msprop:Generator_UserColumnName="WardNo" type="xs:string" minOccurs="0" />
+              <xs:element name="ProvinceCode" msprop:Generator_ColumnVarNameInTable="columnProvinceCode" msprop:Generator_ColumnPropNameInRow="ProvinceCode" msprop:Generator_ColumnPropNameInTable="ProvinceCodeColumn" msprop:Generator_UserColumnName="ProvinceCode" type="xs:string" minOccurs="0" />
+              <xs:element name="Clan" msprop:Generator_ColumnVarNameInTable="columnClan" msprop:Generator_ColumnPropNameInRow="Clan" msprop:Generator_ColumnPropNameInTable="ClanColumn" msprop:Generator_UserColumnName="Clan" type="xs:string" minOccurs="0" />
+              <xs:element name="ElectorProfileImageUrl" msprop:Generator_ColumnVarNameInTable="columnElectorProfileImageUrl" msprop:Generator_ColumnPropNameInRow="ElectorProfileImageUrl" msprop:Generator_ColumnPropNameInTable="ElectorProfileImageUrlColumn" msprop:Generator_UserColumnName="ElectorProfileImageUrl" type="xs:string" minOccurs="0" />
+              <xs:element name="Gender" msprop:Generator_ColumnVarNameInTable="columnGender" msprop:Generator_ColumnPropNameInRow="Gender" msprop:Generator_ColumnPropNameInTable="GenderColumn" msprop:Generator_UserColumnName="Gender" type="xs:string" minOccurs="0" />
+              <xs:element name="NatIDRecordNo" msprop:Generator_ColumnVarNameInTable="columnNatIDRecordNo" msprop:Generator_ColumnPropNameInRow="NatIDRecordNo" msprop:Generator_ColumnPropNameInTable="NatIDRecordNoColumn" msprop:Generator_UserColumnName="NatIDRecordNo" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="tblVoterIdCard_Seq_PK_tblSubVoterIdCard_Seq_FK" msdata:parent="tblVoterIdCard" msdata:child="tblSubVoterIdCard" msdata:parentkey="Seq" msdata:childkey="Seq" msprop:Generator_UserChildTable="tblSubVoterIdCard" msprop:Generator_ChildPropName="GettblSubVoterIdCardRows" msprop:Generator_UserRelationName="tblVoterIdCard_Seq_PK_tblSubVoterIdCard_Seq_FK" msprop:Generator_ParentPropName="tblVoterIdCardRow" msprop:Generator_RelationVarName="relationtblVoterIdCard_Seq_PK_tblSubVoterIdCard_Seq_FK" msprop:Generator_UserParentTable="tblVoterIdCard" />
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>

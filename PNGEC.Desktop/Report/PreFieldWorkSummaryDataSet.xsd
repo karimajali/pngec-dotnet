@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="PreFieldWorkSummaryDataSet" targetNamespace="http://tempuri.org/PreFieldWorkSummaryDataSet.xsd" xmlns:mstns="http://tempuri.org/PreFieldWorkSummaryDataSet.xsd" xmlns="http://tempuri.org/PreFieldWorkSummaryDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="PreFieldWorkSummaryDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="PreFieldWorkSummaryDataSet" msprop:Generator_UserDSName="PreFieldWorkSummaryDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tblPreFieldWorkSummary" msprop:Generator_TableClassName="tblPreFieldWorkSummaryDataTable" msprop:Generator_TableVarName="tabletblPreFieldWorkSummary" msprop:Generator_RowChangedName="tblPreFieldWorkSummaryRowChanged" msprop:Generator_TablePropName="tblPreFieldWorkSummary" msprop:Generator_RowDeletingName="tblPreFieldWorkSummaryRowDeleting" msprop:Generator_RowChangingName="tblPreFieldWorkSummaryRowChanging" msprop:Generator_RowEvHandlerName="tblPreFieldWorkSummaryRowChangeEventHandler" msprop:Generator_RowDeletedName="tblPreFieldWorkSummaryRowDeleted" msprop:Generator_RowClassName="tblPreFieldWorkSummaryRow" msprop:Generator_UserTableName="tblPreFieldWorkSummary" msprop:Generator_RowEvArgName="tblPreFieldWorkSummaryRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Location" msprop:Generator_ColumnVarNameInTable="columnLocation" msprop:Generator_ColumnPropNameInRow="Location" msprop:Generator_ColumnPropNameInTable="LocationColumn" msprop:Generator_UserColumnName="Location" type="xs:string" minOccurs="0" />
+              <xs:element name="Count" msprop:Generator_ColumnVarNameInTable="columnCount" msprop:Generator_ColumnPropNameInRow="Count" msprop:Generator_ColumnPropNameInTable="CountColumn" msprop:Generator_UserColumnName="Count" type="xs:unsignedInt" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

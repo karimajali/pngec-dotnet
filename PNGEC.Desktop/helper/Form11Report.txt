@@ -1,0 +1,232 @@
+﻿<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+   <head>
+      <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+      <title>PNG - CLAIM FOR ENROLMENT FORM</title>
+   </head>
+   <body style='margin: 0 auto; font-family: calibri; font-size: 15px; font-weight: 400;'>
+      <table width='970' align='center' border='0' cellspacing='0' cellpadding='0' style='border-collapse: collapse; max-width: 970px;'>
+         <tr>
+            <td>
+               <table width='100%' border='0' cellspacing='0' cellpadding='0' style='border-collapse: collapse;'>
+                  <tr>
+                     <td width='20%'>
+                        <span style='border: 1px solid #000; font-size: 14px; font-weight: bold; padding:2px 8px;'>Form 11</span><br/>
+                        <p style='font-size: 18px; font-family: Calibri; margin:3px 0 ;'>Law Sec 55, 56, 57<br/>Reg. Sec. 27</p>
+                     </td>
+                     <td width='60%' align='center'><font style='font-size:22px; color: #000000;'>
+                        INDEPENDENT STATE OF PAPUA NEW GUINEA<br/><em style='font-size: 18px; font-family:Times New Roman;'>Organic Law on National and Local-Level Government Elections</em><br/><strong>CLAIM FOR ENROLMENT FORM <small>{0}</small></strong></font>
+                     </td>
+                     <td width='20%' align='center'>
+                     </td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <table width='100%' border='0' cellspacing='0' cellpadding='8' style='border-collapse: collapse;border: 1px solid #000;'>
+                  <tr style='border-bottom: 1px solid #000000;'>
+                     <td><strong>I Apply for:</strong> New Enrolment:<span style='padding: 0px 20px;border: 1px solid #000;margin: 0px 40px 0px 10px;'></span></td>
+                     <td>Transfer Enrolment: <strong>In-</strong><span style='padding: 0px 20px;border: 1px solid #000;margin: 0px 40px 0px 10px;'></span></td>
+                     <td>Provisional Enrolment:<span style='padding: 0px 20px;border: 1px solid #000;margin: 0px 40px 0px 10px;'></span></td>
+                  </tr>
+                  <tr>
+                     <td colspan='3' style='padding-bottom: 0'><strong>Family/Household Particulars</strong></td>
+                  </tr>
+                  <tr style='border-bottom: 1px solid #000000;'>
+                     <td>Family/House No: <span style='border-bottom: 1px dashed #000; display: inline-block; width:62%;'></span></td>
+                     <td>Family/House Name: <span style='border-bottom: 1px dashed #000; display: inline-block; width:55%;'></span></td>
+                     <td>Family/House Order No: <span style='border-bottom: 1px dashed #000; display: inline-block; width:46%;'></span></td>
+                  </tr>
+                  <tr>
+                     <td colspan='3' style='padding-bottom: 0'><strong>Personal Particulars</strong></td>
+                  </tr>
+                  <tr>
+                     <td>Last Name: <span style='border-bottom: 1px dashed #000; display: inline-block;width:75%;'></span></td>
+                     <td>Given Name: <span style='width:72%;border-bottom: 1px dashed #000; display: inline-block;'></span></td>
+                     <td>National ID Card Number: <span style='border-bottom: 1px dashed #000; width: 44%; display: inline-block;'></span></td>
+                  </tr>
+                  <tr>
+                     <td>Date of Birth: <span style='width:20%;border-bottom: 1px dashed #000; display: inline-block;'></span>/<span  style='width:20%;border-bottom: 1px dashed #000; display: inline-block;'></span>/<span style='width:20%;border-bottom: 1px dashed #000; display: inline-block;'></span></td>
+                     <td>Place of Birth: <span style='width:69%;border-bottom: 1px dashed #000; display: inline-block;'></span></td>
+                     <td>Province of Birth: <span style='width:61%;border-bottom: 1px dashed #000; display: inline-block;'></span></td>
+                  </tr>
+                  <tr>
+                     <td>Gender: Male:<span style='border: 1px solid #000;padding: 0px 20px;'></span> Female:<span style='padding: 0px 20px; border: 1px solid #000;'></span></td>
+                     <td>Occupation: <span style='width:73%;border-bottom: 1px dashed #000; display: inline-block;'></span></td>
+                     <td>Person with Disability: <span style='border: 1px solid #000; padding: 0 20px'></span></td>
+                  </tr>
+                  <tr>
+                     <td>Father’s First Name: <span style='width:60%;border-bottom: 1px dashed #000; display: inline-block;'></span></td>
+                     <td colspan='2'>Father’s Last Name: <span style='width:40%;border-bottom: 1px dashed #000; display: inline-block;'></span></td>
+                  </tr>
+                  <tr style='border-bottom: 1px solid #000000;'>
+                     <td>Mother’s First Name: <span style='width:58%;border-bottom: 1px dashed #000; display: inline-block;'></span></td>
+                     <td colspan='2'>Mother’s Last Name: <span style='width:39%; border-bottom: 1px dashed #000;  display: inline-block;'></span></td>
+                  </tr>
+                  <tr>
+                     <td colspan='3' style='padding: 0'>
+                        <table width='100%' border='0' cellspacing='0' cellpadding='8' style='border-collapse: collapse;'>
+                           <tr>
+                              <td colspan='2' style='padding-bottom: 0'><strong>Place of Residence</strong></td>
+                           </tr>
+                           <tr>
+                              <td width='50%' style='padding-bottom: 0'><strong>Province:</strong> <span style='width:75%;border-bottom: 1px dashed #000; display: inline-block;'></span></td>
+                              <td width='50%' style='padding-bottom: 0'><strong>Open Electorate:</strong> <span style='width:76%;border-bottom: 1px dashed #000; display: inline-block;'></span></td>
+                           </tr>
+                           <tr>
+                              <td style='padding-bottom: 6px'><strong>LLG:</strong> <span style='width:85%;border-bottom: 1px dashed #000; display: inline-block;'></span></td>
+                              <td style='padding-bottom: 6px'><strong>Ward No and Name:</strong> <span style='width:72%;border-bottom: 1px dashed #000; display: inline-block;'></span></td>
+                           </tr>
+                        </table>
+                     </td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <table width='100%' border='0' cellspacing='0' cellpadding='8' class='enrolment-form' style='border: 1px solid #000;border-top: 0;border-collapse: collapse;'>
+                  <tr>
+                     <td width='50%' style='padding-bottom: 0'><strong>RURAL</strong></td>
+                     <td width='50%' style='border-left: 1px solid #000; padding-bottom: 0;'><strong>URBAN</strong></td>
+                  </tr>
+                  <tr>
+                     <td style='padding-bottom: 0'>Location/Village: <span style='width:75%;border-bottom: 1px dashed #000; display: inline-block;'></span></td>
+                     <td style='padding-bottom: 0; border-left: 1px solid #000;'>Section No.: <span style='width:34%;border-bottom: 1px dashed #000; display: inline-block;'></span> Lot No.: <span style='width:34%;border-bottom: 1px dashed #000; display: inline-block;'></span></td>
+                  </tr>
+                  <tr>
+                     <td style='padding-bottom: 0'>Clan: <span style='width:90%;border-bottom: 1px dashed #000; display: inline-block;'></span></td>
+                     <td style='padding-bottom: 0; border-left: 1px solid #000;'>Street Name: <span style='width:78%;border-bottom: 1px dashed #000; display: inline-block;'></span></td>
+                  </tr>
+                  <tr>
+                     <td style='padding-bottom: 0'>Sub-clan: <span style='width:85%;border-bottom: 1px dashed #000; display: inline-block;'></span></td>
+                     <td style='padding-bottom: 0; border-left: 1px solid #000;'>Suburb/Town/Settlement <span style='width:62%;border-bottom: 1px dashed #000; display: inline-block;'></span></td>
+                  </tr>
+                  <tr style='border-bottom: 1px solid #000000;'>
+                     <td style='padding-bottom: 6px'>Rest House/etc: <span style='width:76%;border-bottom: 1px dashed #000; display: inline-block;'></span></td>
+                     <td style='border-left: 1px solid #000;'></td>
+                  </tr>
+                  <tr style='border-bottom: 1px solid #000000;'>
+                     <td colspan='2' style='padding: 0'>
+                        <table width='100%' border='0' cellspacing='0' cellpadding='8' style='border-collapse: collapse;'>
+                           <tbody>
+                              <tr>
+                                 <td colspan='2' style='padding-bottom: 0'><strong>PREVIOUS ENROLMENT DETAILS: </strong><em>Only complete the next two sections (shaded) if you are claiming an <strong>enrolment transfer:</strong></em></td>
+                              </tr>
+                              <tr>
+                                 <td style='padding-bottom: 0' width='50%'><strong>Province:</strong> <span style='width:75%;border-bottom: 1px dashed #000; display: inline-block;'></span></td>
+                                 <td style='padding-bottom: 0' width='50%'><strong>Open Electorate:</strong> <span style='width:76%;border-bottom: 1px dashed #000; display: inline-block;'></span></td>
+                              </tr>
+                              <tr>
+                                 <td style='padding-bottom: 6px'><strong>LLG:</strong> <span style='width:85%;border-bottom: 1px dashed #000; display: inline-block;'></span></td>
+                                 <td style='padding-bottom: 6px'><strong>Ward No and Name:</strong> <span style='width:72%;border-bottom: 1px dashed #000; display: inline-block;'></span></td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td width='50%' style='padding-bottom: 0'><strong>RURAL</strong></td>
+                     <td width='50%' style='border-left: 1px solid #000; padding-bottom: 0;'><strong>URBAN</strong></td>
+                  </tr>
+                  <tr>
+                     <td style='padding-bottom: 0'>Location/Village: <span style='width:75%;border-bottom: 1px dashed #000; display: inline-block;'></span></td>
+                     <td style='padding-bottom: 0; border-left: 1px solid #000;'>Section No.: <span style='width:34%; border-bottom: 1px dashed #000; display: inline-block;'></span> Lot No.: <span style='width:34%; border-bottom: 1px dashed #000; display: inline-block;'></span></td>
+                  </tr>
+                  <tr>
+                     <td style='padding-bottom: 0'>Clan: <span style='width:90%;border-bottom: 1px dashed #000; display: inline-block;'></span></td>
+                     <td style='padding-bottom: 0; border-left: 1px solid #000;'>Street Name: <span style='width:78%;border-bottom: 1px dashed #000; display: inline-block;'></span></td>
+                  </tr>
+                  <tr>
+                     <td style='padding-bottom: 0'>Sub-clan: <span style='width:85%;border-bottom: 1px dashed #000; display: inline-block;'></span></td>
+                     <td style='padding-bottom: 0; border-left: 1px solid #000;'>Suburb/Town/Settlement <span style='width:62%;border-bottom: 1px dashed #000; display: inline-block;'></span></td>
+                  </tr>
+                  <tr style='border-bottom: 1px solid #000000;'>
+                     <td style='padding-bottom: 6px'>Rest House/etc: <span style='width:76%;border-bottom: 1px dashed #000; display: inline-block;'></span></td>
+                     <td style='border-left: 1px solid #000;'></td>
+                  </tr>
+                  <tr style='border-bottom: 1px solid #000000;'>
+                     <td colspan='2' style='padding: 0'>
+                        <table width='100%' border='0' cellspacing='0' cellpadding='8' style='border-collapse: collapse;'>
+                           <tbody>
+                              <tr>
+                                 <td colspan='2' style='padding-bottom: 0'><strong>Claimant Declaration </strong></td>
+                              </tr>
+                              <tr>
+                                 <td style='padding-bottom: 0px' width='50%'>1: I am a citizen of Papua New Guinea; and</td>
+                                 <td style='padding-bottom: 0px' width='50%'>2: I have resided in the Electorate for 6 months or more; and, </td>
+                              </tr>
+                              <tr>
+                                 <td style='padding-bottom: 0px'>3: I am not under the age of 18 years <strong style='padding-left: 160px; font-size: 18px;'>OR</strong></td>
+                                 <td style='padding-bottom: 0px'>4: I will reach the age of 18 on <span style='width:12%;border-bottom: 1px dashed #000; display: inline-block;'></span>/<span style='width:12%;border-bottom: 1px dashed #000;display: inline-block;'></span>/<span style='width:12%;border-bottom: 1px dashed #000; display: inline-block;'></span></td>
+                              </tr>
+                              <tr>
+                                 <td style='padding-bottom: 0px' colspan='2'>I hereby claim enrolment as an elector of ................................................. Open Electorate.  I declare that all of the statements made in this claim are true to the best of my knowledge and belief.</td>
+                              </tr>
+                              <tr>
+                                 <td style='padding-bottom: 4px' colspan='2'>Signature or mark of claimant: ................................................... Date: .............../.............../................ </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </td>
+                  </tr>
+                  <tr style='border-bottom: 1px solid #000000;'>
+                     <td colspan='2' style='padding: 0'>
+                        <table width='100%' border='0' cellspacing='0' cellpadding='8' style='border-collapse: collapse;'>
+                           <tbody>
+                              <tr>
+                                 <td style='padding-bottom: 0px'><strong>Witness Declaration:</strong> I, the undersigned, am an elector or am qualified to be an elector and declare that I have seen the above claimant sign this claim and I either know the statements made by the claimant to be true or I have satisfied myself by asking the claimant, or in some other way, that they are true.</td>
+                              </tr>
+                              <tr>
+                                 <td style='padding-bottom: 0px'>Signature or mark of witness: .................................................. Name of witness: ...................................................  Date: .............../.............../................</td>
+                              </tr>
+                              <tr>
+                                 <td style='padding-bottom: 4px'>Occupation: ................................................................................. Address:...........................................................................................................................</td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </td>
+                  </tr>
+                  <tr style='border-bottom: 1px solid #000000;'>
+                     <td colspan='2' style='padding: 0'>
+                        <table width='100%' border='0' cellspacing='0' cellpadding='8' style='border-collapse: collapse;'>
+                           <tbody>
+                              <tr>
+                                 <td style='padding-bottom: 0px' colspan='3'><strong>Enrolment Agent Declaration:</strong> I, acting as enrolment agent appointed by the Returning officer for .................................................... Open Electorate have satisfied myself that the statements made by this claimant to be true.</td>
+                              </tr>
+                              <tr>
+                                 <td style='padding-bottom: 4px' width='33.33%'>Name: <span style='width:70%;border-bottom: 1px dashed #000; display: inline-block;'></span></td>
+                                 <td style='padding-bottom: 4px' width='33.33%'>Signature: <span style='width:58%;border-bottom: 1px dashed #000; display: inline-block;'></span></td>
+                                 <td style='padding-bottom: 4px' width='33.33%'>Date: <span style='width:18%;border-bottom: 1px dashed #000; display: inline-block;'></span>/<span style='width:18%;border-bottom: 1px dashed #000; display: inline-block;'></span>/<span style='width:18%;border-bottom: 1px dashed #000; display: inline-block;'></span></td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </td>
+                  </tr>
+                  <tr style='border-bottom: 1px solid #000000;'>
+                     <td colspan='2' style='padding: 0'>
+                        <table width='100%' border='0' cellspacing='0' cellpadding='8' style='border-collapse: collapse;'>
+                           <tbody>
+                              <tr>
+                                 <td style='padding-bottom: 0px' colspan='3'><strong>Returning Officer Declaration: </strong> : I, as Returning Officer for................................................................................Open Electorate certify that best endeavours have been taken to properly identify the above claimant and confirm the personal details provided.</td>
+                              </tr>
+                              <tr>
+                                 <td style='padding-bottom: 0px' colspan='3'>I have checked that this claim form has been completed correctly; and understand that claims that do not contain my signature cannot be entered on to the Electoral Roll</td>
+                              </tr>
+                              <tr>
+                                 <td style='padding-bottom: 0px' width='33.33%'>Name: <span style='width:70%;border-bottom: 1px dashed #000; display: inline-block;'></span></td>
+                                 <td style='padding-bottom: 4px' width='33.33%'>Signature: <span style='width:58%;border-bottom: 1px dashed #000; display: inline-block;'></span></td>
+                                 <td style='padding-bottom: 4px' width='33.33%'>Date: <span style='width:18%;border-bottom: 1px dashed #000; display: inline-block;'></span>/<span style='width:18%;border-bottom: 1px dashed #000;display: inline-block;'></span>/<span  style='width:18%;border-bottom: 1px dashed #000; display: inline-block;'></span></td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+      </table>
+   </body>
+</html>

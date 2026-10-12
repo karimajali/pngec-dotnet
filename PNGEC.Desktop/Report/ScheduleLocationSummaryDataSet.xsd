@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ScheduleLocationSummaryDataSet" targetNamespace="http://tempuri.org/ScheduleLocationSummaryDataSet.xsd" xmlns:mstns="http://tempuri.org/ScheduleLocationSummaryDataSet.xsd" xmlns="http://tempuri.org/ScheduleLocationSummaryDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ScheduleLocationSummaryDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ScheduleLocationSummaryDataSet" msprop:Generator_UserDSName="ScheduleLocationSummaryDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tblScheduleLocationSummary" msprop:Generator_TableClassName="tblScheduleLocationSummaryDataTable" msprop:Generator_TableVarName="tabletblScheduleLocationSummary" msprop:Generator_TablePropName="tblScheduleLocationSummary" msprop:Generator_RowDeletingName="tblScheduleLocationSummaryRowDeleting" msprop:Generator_RowChangingName="tblScheduleLocationSummaryRowChanging" msprop:Generator_RowEvHandlerName="tblScheduleLocationSummaryRowChangeEventHandler" msprop:Generator_RowDeletedName="tblScheduleLocationSummaryRowDeleted" msprop:Generator_UserTableName="tblScheduleLocationSummary" msprop:Generator_RowChangedName="tblScheduleLocationSummaryRowChanged" msprop:Generator_RowEvArgName="tblScheduleLocationSummaryRowChangeEvent" msprop:Generator_RowClassName="tblScheduleLocationSummaryRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Region" msprop:Generator_ColumnVarNameInTable="columnRegion" msprop:Generator_ColumnPropNameInRow="Region" msprop:Generator_ColumnPropNameInTable="RegionColumn" msprop:Generator_UserColumnName="Region" type="xs:string" minOccurs="0" />
+              <xs:element name="Province" msprop:Generator_ColumnVarNameInTable="columnProvince" msprop:Generator_ColumnPropNameInRow="Province" msprop:Generator_ColumnPropNameInTable="ProvinceColumn" msprop:Generator_UserColumnName="Province" type="xs:string" minOccurs="0" />
+              <xs:element name="District" msprop:Generator_ColumnVarNameInTable="columnDistrict" msprop:Generator_ColumnPropNameInRow="District" msprop:Generator_ColumnPropNameInTable="DistrictColumn" msprop:Generator_UserColumnName="District" type="xs:string" minOccurs="0" />
+              <xs:element name="LLG" msprop:Generator_ColumnVarNameInTable="columnLLG" msprop:Generator_ColumnPropNameInRow="LLG" msprop:Generator_ColumnPropNameInTable="LLGColumn" msprop:Generator_UserColumnName="LLG" type="xs:string" minOccurs="0" />
+              <xs:element name="Ward" msprop:Generator_ColumnVarNameInTable="columnWard" msprop:Generator_ColumnPropNameInRow="Ward" msprop:Generator_ColumnPropNameInTable="WardColumn" msprop:Generator_UserColumnName="Ward" type="xs:string" minOccurs="0" />
+              <xs:element name="Location" msprop:Generator_ColumnVarNameInTable="columnLocation" msprop:Generator_ColumnPropNameInRow="Location" msprop:Generator_ColumnPropNameInTable="LocationColumn" msprop:Generator_UserColumnName="Location" type="xs:string" minOccurs="0" />
+              <xs:element name="Schedule" msprop:Generator_ColumnVarNameInTable="columnSchedule" msprop:Generator_ColumnPropNameInRow="Schedule" msprop:Generator_ColumnPropNameInTable="ScheduleColumn" msprop:Generator_UserColumnName="Schedule" type="xs:string" minOccurs="0" />
+              <xs:element name="PreviousTotal" msprop:Generator_ColumnVarNameInTable="columnPreviousTotal" msprop:Generator_ColumnPropNameInRow="PreviousTotal" msprop:Generator_ColumnPropNameInTable="PreviousTotalColumn" msprop:Generator_UserColumnName="PreviousTotal" type="xs:string" minOccurs="0" />
+              <xs:element name="OLD" msprop:Generator_ColumnVarNameInTable="columnOLD" msprop:Generator_ColumnPropNameInRow="OLD" msprop:Generator_ColumnPropNameInTable="OLDColumn" msprop:Generator_UserColumnName="OLD" type="xs:string" minOccurs="0" />
+              <xs:element name="NEW" msprop:Generator_ColumnVarNameInTable="columnNEW" msprop:Generator_ColumnPropNameInRow="NEW" msprop:Generator_ColumnPropNameInTable="NEWColumn" msprop:Generator_UserColumnName="NEW" type="xs:string" minOccurs="0" />
+              <xs:element name="UPDATED" msprop:Generator_ColumnVarNameInTable="columnUPDATED" msprop:Generator_ColumnPropNameInRow="UPDATED" msprop:Generator_ColumnPropNameInTable="UPDATEDColumn" msprop:Generator_UserColumnName="UPDATED" type="xs:string" minOccurs="0" />
+              <xs:element name="TRANSFERIN" msprop:Generator_ColumnVarNameInTable="columnTRANSFERIN" msprop:Generator_ColumnPropNameInRow="TRANSFERIN" msprop:Generator_ColumnPropNameInTable="TRANSFERINColumn" msprop:Generator_UserColumnName="TRANSFERIN" type="xs:string" minOccurs="0" />
+              <xs:element name="TRANSFEROUT" msprop:Generator_ColumnVarNameInTable="columnTRANSFEROUT" msprop:Generator_ColumnPropNameInRow="TRANSFEROUT" msprop:Generator_ColumnPropNameInTable="TRANSFEROUTColumn" msprop:Generator_UserColumnName="TRANSFEROUT" type="xs:string" minOccurs="0" />
+              <xs:element name="DECEASED" msprop:Generator_ColumnVarNameInTable="columnDECEASED" msprop:Generator_ColumnPropNameInRow="DECEASED" msprop:Generator_ColumnPropNameInTable="DECEASEDColumn" msprop:Generator_UserColumnName="DECEASED" type="xs:string" minOccurs="0" />
+              <xs:element name="DUPLICATE" msprop:Generator_ColumnVarNameInTable="columnDUPLICATE" msprop:Generator_ColumnPropNameInRow="DUPLICATE" msprop:Generator_ColumnPropNameInTable="DUPLICATEColumn" msprop:Generator_UserColumnName="DUPLICATE" type="xs:string" minOccurs="0" />
+              <xs:element name="GHOST" msprop:Generator_ColumnVarNameInTable="columnGHOST" msprop:Generator_ColumnPropNameInRow="GHOST" msprop:Generator_ColumnPropNameInTable="GHOSTColumn" msprop:Generator_UserColumnName="GHOST" type="xs:string" minOccurs="0" />
+              <xs:element name="UNDERAGE" msprop:Generator_ColumnVarNameInTable="columnUNDERAGE" msprop:Generator_ColumnPropNameInRow="UNDERAGE" msprop:Generator_ColumnPropNameInTable="UNDERAGEColumn" msprop:Generator_UserColumnName="UNDERAGE" type="xs:string" minOccurs="0" />
+              <xs:element name="TOTAL" msprop:Generator_ColumnVarNameInTable="columnTOTAL" msprop:Generator_ColumnPropNameInRow="TOTAL" msprop:Generator_ColumnPropNameInTable="TOTALColumn" msprop:Generator_UserColumnName="TOTAL" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

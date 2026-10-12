@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Form11DataSet" targetNamespace="http://tempuri.org/Form11DataSet.xsd" xmlns:mstns="http://tempuri.org/Form11DataSet.xsd" xmlns="http://tempuri.org/Form11DataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Form11DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Form11DataSet" msprop:Generator_UserDSName="Form11DataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tblForm11" msprop:Generator_TableClassName="tblForm11DataTable" msprop:Generator_TableVarName="tabletblForm11" msprop:Generator_TablePropName="tblForm11" msprop:Generator_RowDeletingName="tblForm11RowDeleting" msprop:Generator_RowChangingName="tblForm11RowChanging" msprop:Generator_RowEvHandlerName="tblForm11RowChangeEventHandler" msprop:Generator_RowDeletedName="tblForm11RowDeleted" msprop:Generator_UserTableName="tblForm11" msprop:Generator_RowChangedName="tblForm11RowChanged" msprop:Generator_RowEvArgName="tblForm11RowChangeEvent" msprop:Generator_RowClassName="tblForm11Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FormId" msprop:Generator_ColumnVarNameInTable="columnFormId" msprop:Generator_ColumnPropNameInRow="FormId" msprop:Generator_ColumnPropNameInTable="FormIdColumn" msprop:Generator_UserColumnName="FormId" type="xs:int" minOccurs="0" />
+              <xs:element name="FormNo" msprop:Generator_ColumnVarNameInTable="columnFormNo" msprop:Generator_ColumnPropNameInRow="FormNo" msprop:Generator_ColumnPropNameInTable="FormNoColumn" msprop:Generator_UserColumnName="FormNo" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblSubForm11" msprop:Generator_TableClassName="tblSubForm11DataTable" msprop:Generator_TableVarName="tabletblSubForm11" msprop:Generator_TablePropName="tblSubForm11" msprop:Generator_RowDeletingName="tblSubForm11RowDeleting" msprop:Generator_RowChangingName="tblSubForm11RowChanging" msprop:Generator_RowEvHandlerName="tblSubForm11RowChangeEventHandler" msprop:Generator_RowDeletedName="tblSubForm11RowDeleted" msprop:Generator_UserTableName="tblSubForm11" msprop:Generator_RowChangedName="tblSubForm11RowChanged" msprop:Generator_RowEvArgName="tblSubForm11RowChangeEvent" msprop:Generator_RowClassName="tblSubForm11Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FormId" msprop:Generator_ColumnVarNameInTable="columnFormId" msprop:Generator_ColumnPropNameInRow="FormId" msprop:Generator_ColumnPropNameInTable="FormIdColumn" msprop:Generator_UserColumnName="FormId" type="xs:int" minOccurs="0" />
+              <xs:element name="FormNo" msprop:Generator_ColumnVarNameInTable="columnFormNo" msprop:Generator_ColumnPropNameInRow="FormNo" msprop:Generator_ColumnPropNameInTable="FormNoColumn" msprop:Generator_UserColumnName="FormNo" type="xs:string" minOccurs="0" />
+              <xs:element name="QRCodeUrl" msprop:Generator_ColumnVarNameInTable="columnQRCodeUrl" msprop:Generator_ColumnPropNameInRow="QRCodeUrl" msprop:Generator_ColumnPropNameInTable="QRCodeUrlColumn" msprop:Generator_UserColumnName="QRCodeUrl" type="xs:string" minOccurs="0" />
+              <xs:element name="Province" msprop:Generator_ColumnVarNameInTable="columnProvince" msprop:Generator_ColumnPropNameInRow="Province" msprop:Generator_ColumnPropNameInTable="ProvinceColumn" msprop:Generator_UserColumnName="Province" type="xs:string" minOccurs="0" />
+              <xs:element name="District" msprop:Generator_ColumnVarNameInTable="columnDistrict" msprop:Generator_ColumnPropNameInRow="District" msprop:Generator_ColumnPropNameInTable="DistrictColumn" msprop:Generator_UserColumnName="District" type="xs:string" minOccurs="0" />
+              <xs:element name="LLG" msprop:Generator_ColumnVarNameInTable="columnLLG" msprop:Generator_ColumnPropNameInRow="LLG" msprop:Generator_ColumnPropNameInTable="LLGColumn" msprop:Generator_UserColumnName="LLG" type="xs:string" minOccurs="0" />
+              <xs:element name="WardNoWardName" msprop:Generator_ColumnVarNameInTable="columnWardNoWardName" msprop:Generator_ColumnPropNameInRow="WardNoWardName" msprop:Generator_ColumnPropNameInTable="WardNoWardNameColumn" msprop:Generator_UserColumnName="WardNoWardName" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="tblForm11_FormId_PK_tblSubForm11_FormId_FK" msdata:parent="tblForm11" msdata:child="tblSubForm11" msdata:parentkey="FormId" msdata:childkey="FormId" msprop:Generator_UserChildTable="tblSubForm11" msprop:Generator_ChildPropName="GettblSubForm11Rows" msprop:Generator_UserRelationName="tblForm11_FormId_PK_tblSubForm11_FormId_FK" msprop:Generator_RelationVarName="relationtblForm11_FormId_PK_tblSubForm11_FormId_FK" msprop:Generator_UserParentTable="tblForm11" msprop:Generator_ParentPropName="tblForm11Row" />
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>

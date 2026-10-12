@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ElectionWritDataSet" targetNamespace="http://tempuri.org/ElectionWritDataSet.xsd" xmlns:mstns="http://tempuri.org/ElectionWritDataSet.xsd" xmlns="http://tempuri.org/ElectionWritDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="pngec_coreConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="pngec_coreConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.PNGEC.Desktop.Properties.Settings.GlobalReference.Default.pngec_coreConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ElectionWritDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="ElectionWritDataSet" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="ElectionWritDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tblSubWritRo" msprop:Generator_RowEvHandlerName="tblSubWritRoRowChangeEventHandler" msprop:Generator_RowDeletedName="tblSubWritRoRowDeleted" msprop:Generator_RowDeletingName="tblSubWritRoRowDeleting" msprop:Generator_RowEvArgName="tblSubWritRoRowChangeEvent" msprop:Generator_TablePropName="tblSubWritRo" msprop:Generator_RowChangedName="tblSubWritRoRowChanged" msprop:Generator_UserTableName="tblSubWritRo" msprop:Generator_RowChangingName="tblSubWritRoRowChanging" msprop:Generator_RowClassName="tblSubWritRoRow" msprop:Generator_TableClassName="tblSubWritRoDataTable" msprop:Generator_TableVarName="tabletblSubWritRo">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="WritROId" msprop:Generator_ColumnPropNameInTable="WritROIdColumn" msprop:Generator_ColumnPropNameInRow="WritROId" msprop:Generator_UserColumnName="WritROId" msprop:Generator_ColumnVarNameInTable="columnWritROId" type="xs:string" />
+              <xs:element name="ElectionWritId" msprop:Generator_ColumnPropNameInTable="ElectionWritIdColumn" msprop:Generator_ColumnPropNameInRow="ElectionWritId" msprop:Generator_UserColumnName="ElectionWritId" msprop:Generator_ColumnVarNameInTable="columnElectionWritId" type="xs:string" minOccurs="0" />
+              <xs:element name="ProvinceId" msprop:Generator_ColumnPropNameInTable="ProvinceIdColumn" msprop:Generator_ColumnPropNameInRow="ProvinceId" msprop:Generator_UserColumnName="ProvinceId" msprop:Generator_ColumnVarNameInTable="columnProvinceId" type="xs:string" minOccurs="0" />
+              <xs:element name="ROName" msprop:Generator_ColumnPropNameInTable="RONameColumn" msprop:Generator_ColumnPropNameInRow="ROName" msprop:Generator_UserColumnName="ROName" msprop:Generator_ColumnVarNameInTable="columnROName" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblElectionWrit" msprop:Generator_RowEvHandlerName="tblElectionWritRowChangeEventHandler" msprop:Generator_RowDeletedName="tblElectionWritRowDeleted" msprop:Generator_RowDeletingName="tblElectionWritRowDeleting" msprop:Generator_RowEvArgName="tblElectionWritRowChangeEvent" msprop:Generator_TablePropName="tblElectionWrit" msprop:Generator_RowChangedName="tblElectionWritRowChanged" msprop:Generator_UserTableName="tblElectionWrit" msprop:Generator_RowChangingName="tblElectionWritRowChanging" msprop:Generator_RowClassName="tblElectionWritRow" msprop:Generator_TableClassName="tblElectionWritDataTable" msprop:Generator_TableVarName="tabletblElectionWrit">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_UserColumnName="Id" msprop:Generator_ColumnVarNameInTable="columnId" type="xs:string" />
+              <xs:element name="ROName" msprop:Generator_ColumnPropNameInTable="RONameColumn" msprop:Generator_ColumnPropNameInRow="ROName" msprop:Generator_UserColumnName="ROName" msprop:Generator_ColumnVarNameInTable="columnROName" type="xs:string" minOccurs="0" />
+              <xs:element name="WritName" msprop:Generator_ColumnPropNameInTable="WritNameColumn" msprop:Generator_ColumnPropNameInRow="WritName" msprop:Generator_UserColumnName="WritName" msprop:Generator_ColumnVarNameInTable="columnWritName" type="xs:string" minOccurs="0" />
+              <xs:element name="Type" msprop:Generator_ColumnPropNameInTable="TypeColumn" msprop:Generator_ColumnPropNameInRow="Type" msprop:Generator_UserColumnName="Type" msprop:Generator_ColumnVarNameInTable="columnType" type="xs:string" minOccurs="0" />
+              <xs:element name="Scop" msprop:Generator_ColumnPropNameInTable="ScopColumn" msprop:Generator_ColumnPropNameInRow="Scop" msprop:Generator_UserColumnName="Scop" msprop:Generator_ColumnVarNameInTable="columnScop" type="xs:string" minOccurs="0" />
+              <xs:element name="NominationStartDate" msprop:Generator_ColumnPropNameInTable="NominationStartDateColumn" msprop:Generator_ColumnPropNameInRow="NominationStartDate" msprop:Generator_UserColumnName="NominationStartDate" msprop:Generator_ColumnVarNameInTable="columnNominationStartDate" type="xs:string" minOccurs="0" />
+              <xs:element name="NominationEndDate" msprop:Generator_ColumnPropNameInTable="NominationEndDateColumn" msprop:Generator_ColumnPropNameInRow="NominationEndDate" msprop:Generator_UserColumnName="NominationEndDate" msprop:Generator_ColumnVarNameInTable="columnNominationEndDate" type="xs:string" minOccurs="0" />
+              <xs:element name="FirstDayOfPolling" msprop:Generator_ColumnPropNameInTable="FirstDayOfPollingColumn" msprop:Generator_ColumnPropNameInRow="FirstDayOfPolling" msprop:Generator_UserColumnName="FirstDayOfPolling" msprop:Generator_ColumnVarNameInTable="columnFirstDayOfPolling" type="xs:string" minOccurs="0" />
+              <xs:element name="LastDayOfPolling" msprop:Generator_ColumnPropNameInTable="LastDayOfPollingColumn" msprop:Generator_ColumnPropNameInRow="LastDayOfPolling" msprop:Generator_UserColumnName="LastDayOfPolling" msprop:Generator_ColumnVarNameInTable="columnLastDayOfPolling" type="xs:string" minOccurs="0" />
+              <xs:element name="ReturnOfWritDate" msprop:Generator_ColumnPropNameInTable="ReturnOfWritDateColumn" msprop:Generator_ColumnPropNameInRow="ReturnOfWritDate" msprop:Generator_UserColumnName="ReturnOfWritDate" msprop:Generator_ColumnVarNameInTable="columnReturnOfWritDate" type="xs:string" minOccurs="0" />
+              <xs:element name="IssueDate" msprop:Generator_ColumnPropNameInTable="IssueDateColumn" msprop:Generator_ColumnPropNameInRow="IssueDate" msprop:Generator_UserColumnName="IssueDate" msprop:Generator_ColumnVarNameInTable="columnIssueDate" type="xs:string" minOccurs="0" />
+              <xs:element name="IssuerName" msprop:Generator_ColumnPropNameInTable="IssuerNameColumn" msprop:Generator_ColumnPropNameInRow="IssuerName" msprop:Generator_UserColumnName="IssuerName" msprop:Generator_ColumnVarNameInTable="columnIssuerName" type="xs:string" minOccurs="0" />
+              <xs:element name="IssuerTitle" msprop:Generator_ColumnPropNameInTable="IssuerTitleColumn" msprop:Generator_ColumnPropNameInRow="IssuerTitle" msprop:Generator_UserColumnName="IssuerTitle" msprop:Generator_ColumnVarNameInTable="columnIssuerTitle" type="xs:string" minOccurs="0" />
+              <xs:element name="Batch" msprop:Generator_ColumnPropNameInTable="BatchColumn" msprop:Generator_ColumnPropNameInRow="Batch" msprop:Generator_UserColumnName="Batch" msprop:Generator_ColumnVarNameInTable="columnBatch" type="xs:string" minOccurs="0" />
+              <xs:element name="WardName" msprop:Generator_UserColumnName="WardName" msprop:Generator_ColumnPropNameInTable="WardNameColumn" msprop:Generator_ColumnPropNameInRow="WardName" msprop:Generator_ColumnVarNameInTable="columnWardName" type="xs:string" minOccurs="0" />
+              <xs:element name="WardNoWardName" msprop:Generator_UserColumnName="WardNoWardName" msprop:Generator_ColumnPropNameInTable="WardNoWardNameColumn" msprop:Generator_ColumnPropNameInRow="WardNoWardName" msprop:Generator_ColumnVarNameInTable="columnWardNoWardName" type="xs:string" minOccurs="0" />
+              <xs:element name="LLGName" msprop:Generator_UserColumnName="LLGName" msprop:Generator_ColumnPropNameInTable="LLGNameColumn" msprop:Generator_ColumnPropNameInRow="LLGName" msprop:Generator_ColumnVarNameInTable="columnLLGName" type="xs:string" minOccurs="0" />
+              <xs:element name="DistrictName" msprop:Generator_UserColumnName="DistrictName" msprop:Generator_ColumnPropNameInTable="DistrictNameColumn" msprop:Generator_ColumnPropNameInRow="DistrictName" msprop:Generator_ColumnVarNameInTable="columnDistrictName" type="xs:string" minOccurs="0" />
+              <xs:element name="ProvinceName" msprop:Generator_UserColumnName="ProvinceName" msprop:Generator_ColumnPropNameInTable="ProvinceNameColumn" msprop:Generator_ColumnPropNameInRow="ProvinceName" msprop:Generator_ColumnVarNameInTable="columnProvinceName" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="tblSubWritRoKey1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tblSubWritRo" />
+      <xs:field xpath="mstns:WritROId" />
+    </xs:unique>
+    <xs:unique name="tblElectionWrit1Key1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tblElectionWrit" />
+      <xs:field xpath="mstns:Id" />
+    </xs:unique>
+  </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="tblElectionWrit_tblSubWritRo" msdata:parent="tblElectionWrit" msdata:child="tblSubWritRo" msdata:parentkey="Id" msdata:childkey="ElectionWritId" msprop:Generator_UserParentTable="tblElectionWrit" msprop:Generator_UserChildTable="tblSubWritRo" msprop:Generator_RelationVarName="relationtblElectionWrit_tblSubWritRo" msprop:Generator_ChildPropName="GettblSubWritRoRows" msprop:Generator_UserRelationName="tblElectionWrit_tblSubWritRo" msprop:Generator_ParentPropName="tblElectionWritRow" />
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>

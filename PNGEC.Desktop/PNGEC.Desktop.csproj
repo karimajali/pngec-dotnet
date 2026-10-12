@@ -1,0 +1,1669 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D16E301F-EAF7-4E97-BF3A-74B0171CD172}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>PNGEC.Desktop</RootNamespace>
+    <AssemblyName>PNGEC.ProvincialApp</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>pngec_32x32.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.6.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.6.1\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="GoogleMaps.LocationServices, Version=1.2.0.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\GoogleMaps.LocationServices.1.2.0.5\lib\netstandard2.0\GoogleMaps.LocationServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http, Version=2.2.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.2.2.2\lib\netstandard2.0\Microsoft.AspNetCore.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Features, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Features.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Features.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.WebUtilities, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.WebUtilities.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.WebUtilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.ObjectPool, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.ObjectPool.2.2.0\lib\netstandard2.0\Microsoft.Extensions.ObjectPool.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=3.1.9.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.3.1.9\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Net.Http.Headers, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.Headers.2.2.0\lib\netstandard2.0\Microsoft.Net.Http.Headers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1001\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1620.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1620.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1620.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1620.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1620.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.5.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Device" />
+    <Reference Include="System.Device.Portable, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3f6d3f5f65b761a0, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Device.Location.Portable.1.0.0\lib\System.Device.Portable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.IO.Compression.ZipFile, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL" />
+    <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.2\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.7.1\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Json, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net461\System.Security.Cryptography.Algorithms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.4.5.0\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="zxing, Version=0.16.6.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.6\lib\net461\zxing.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.6.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.6\lib\net461\zxing.presentation.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Forms\ProductionToTraining.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ProductionToTraining.Designer.cs">
+      <DependentUpon>ProductionToTraining.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserActivityList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserActivityList.Designer.cs">
+      <DependentUpon>UserActivityList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\WritPrintOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\WritPrintOptions.Designer.cs">
+      <DependentUpon>WritPrintOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ElectionWritDataSet.cs">
+      <DependentUpon>ElectionWritDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddDocument.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddDocument.Designer.cs">
+      <DependentUpon>AddDocument.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AuditTrialviewDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AuditTrialviewDetail.Designer.cs">
+      <DependentUpon>AuditTrialviewDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AugmentedRollStat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AugmentedRollStat.Designer.cs">
+      <DependentUpon>AugmentedRollStat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AugmentedRollStatUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AugmentedRollStatUpdate.Designer.cs">
+      <DependentUpon>AugmentedRollStatUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ClanAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ClanAdd.Designer.cs">
+      <DependentUpon>ClanAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DatabaseConnect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DatabaseConnect.Designer.cs">
+      <DependentUpon>DatabaseConnect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Writ.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Writ.Designer.cs">
+      <DependentUpon>Writ.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Device.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Device.Designer.cs">
+      <DependentUpon>Device.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\District.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\District.Designer.cs">
+      <DependentUpon>District.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DocumentList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DocumentList.Designer.cs">
+      <DependentUpon>DocumentList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DownloadProvincialFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DownloadProvincialFile.Designer.cs">
+      <DependentUpon>DownloadProvincialFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EnrolAttachment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EnrolAttachment.Designer.cs">
+      <DependentUpon>EnrolAttachment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GeoClanList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GeoClanList.Designer.cs">
+      <DependentUpon>GeoClanList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GeoStructureList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GeoStructureList.Designer.cs">
+      <DependentUpon>GeoStructureList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Clan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Clan.Designer.cs">
+      <DependentUpon>Clan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Location.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Location.Designer.cs">
+      <DependentUpon>Location.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MKAClan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MKAClan.Designer.cs">
+      <DependentUpon>MKAClan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MKAClanList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MKAClanList.Designer.cs">
+      <DependentUpon>MKAClanList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MKADistrict.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MKADistrict.Designer.cs">
+      <DependentUpon>MKADistrict.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MKAEnrolmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MKAEnrolmentForm.Designer.cs">
+      <DependentUpon>MKAEnrolmentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MKAFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MKAFile.Designer.cs">
+      <DependentUpon>MKAFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ImportFromExcel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ImportFromExcel.Designer.cs">
+      <DependentUpon>ImportFromExcel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LLGTransfer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LLGTransfer.Designer.cs">
+      <DependentUpon>LLGTransfer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MissingForm11Number.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MissingForm11Number.Designer.cs">
+      <DependentUpon>MissingForm11Number.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MKAGeoStructureList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MKAGeoStructureList.Designer.cs">
+      <DependentUpon>MKAGeoStructureList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MKALLG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MKALLG.Designer.cs">
+      <DependentUpon>MKALLG.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MKALLGTransfer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MKALLGTransfer.Designer.cs">
+      <DependentUpon>MKALLGTransfer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MKALocation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MKALocation.Designer.cs">
+      <DependentUpon>MKALocation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MKALocationTransfer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MKALocationTransfer.Designer.cs">
+      <DependentUpon>MKALocationTransfer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MKAWard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MKAWard.Designer.cs">
+      <DependentUpon>MKAWard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MKAWardRollBookExportModel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MKAWardRollBookExportModel.Designer.cs">
+      <DependentUpon>MKAWardRollBookExportModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MKAWardStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MKAWardStatus.Designer.cs">
+      <DependentUpon>MKAWardStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MKAWardTransfer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MKAWardTransfer.Designer.cs">
+      <DependentUpon>MKAWardTransfer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MKARollStat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MKARollStat.Designer.cs">
+      <DependentUpon>MKARollStat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\WritList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\WritList.Designer.cs">
+      <DependentUpon>WritList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\WardQualityCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\WardQualityCheck.Designer.cs">
+      <DependentUpon>WardQualityCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EnrolmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EnrolmentForm.Designer.cs">
+      <DependentUpon>EnrolmentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\File.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\File.Designer.cs">
+      <DependentUpon>File.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GeoStructure.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GeoStructure.Designer.cs">
+      <DependentUpon>GeoStructure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ImportBioDataDeails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ImportBioDataDeails.Designer.cs">
+      <DependentUpon>ImportBioDataDeails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ImportBioDetailsStatusType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ImportBioDetailsStatusType.Designer.cs">
+      <DependentUpon>ImportBioDetailsStatusType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ListDevice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ListDevice.Designer.cs">
+      <DependentUpon>ListDevice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ListUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ListUser.Designer.cs">
+      <DependentUpon>ListUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LLG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LLG.Designer.cs">
+      <DependentUpon>LLG.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LoadingWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LoadingWindow.Designer.cs">
+      <DependentUpon>LoadingWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LocationTransfer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LocationTransfer.Designer.cs">
+      <DependentUpon>LocationTransfer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Occupation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Occupation.Designer.cs">
+      <DependentUpon>Occupation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OccupationList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OccupationList.Designer.cs">
+      <DependentUpon>OccupationList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Province.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Province.Designer.cs">
+      <DependentUpon>Province.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Region.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Region.Designer.cs">
+      <DependentUpon>Region.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RejectedReason.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RejectedReason.Designer.cs">
+      <DependentUpon>RejectedReason.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ResetPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ResetPassword.Designer.cs">
+      <DependentUpon>ResetPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ScheduleLocSummary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ScheduleLocSummary.Designer.cs">
+      <DependentUpon>ScheduleLocSummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Setting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Setting.Designer.cs">
+      <DependentUpon>Setting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TransferInVoter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TransferInVoter.Designer.cs">
+      <DependentUpon>TransferInVoter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TransferVoter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TransferVoter.Designer.cs">
+      <DependentUpon>TransferVoter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\User.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\User.Designer.cs">
+      <DependentUpon>User.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ViewComment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ViewComment.Designer.cs">
+      <DependentUpon>ViewComment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ROVoterDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ROVoterDetails.Designer.cs">
+      <DependentUpon>ROVoterDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\VoterDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\VoterDetails.Designer.cs">
+      <DependentUpon>VoterDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Ward.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Ward.Designer.cs">
+      <DependentUpon>Ward.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\WardRollBookExportModel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\WardRollBookExportModel.Designer.cs">
+      <DependentUpon>WardRollBookExportModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\WardStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\WardStatus.Designer.cs">
+      <DependentUpon>WardStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\WardTransfer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\WardTransfer.Designer.cs">
+      <DependentUpon>WardTransfer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ZomeImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ZomeImage.Designer.cs">
+      <DependentUpon>ZomeImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\AppSettings.cs" />
+    <Compile Include="Helper\HttpClientDownloadWithProgress.cs" />
+    <Compile Include="Helper\JsonFileHelper.cs" />
+    <Compile Include="Helper\LocationDetails.cs" />
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainMaster.Designer.cs">
+      <DependentUpon>MainMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DownloadProvince.cs" />
+    <Compile Include="Model\GeoTreeStructure.cs" />
+    <Compile Include="Model\GlobalsModel.cs" />
+    <Compile Include="Model\LocationDetailsModel.cs" />
+    <Compile Include="Model\LoggedUserModel.cs" />
+    <Compile Include="Model\MKAGeoTreeStructure.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report\AugmentedRollStatDataSet.cs">
+      <DependentUpon>AugmentedRollStatDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\AugmentedRollStatDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AugmentedRollStatDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\DataMigrationDataSet.cs">
+      <DependentUpon>DataMigrationDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\DataMigrationDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataMigrationDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\DuplicateVoterDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DuplicateVoterDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ElectionWritDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ElectionWritDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ExisitngVoterDetailsDataSet.cs">
+      <DependentUpon>ExisitngVoterDetailsDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ExisitngVoterDetailsDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ExisitngVoterDetailsDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\FieldTallySummarySheetDataSet.cs">
+      <DependentUpon>FieldTallySummarySheetDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\FieldTallySummarySheetDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FieldTallySummarySheetDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Form11DataSet.cs">
+      <DependentUpon>Form11DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Form11DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Form11DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\MKAFieldTallySummarySheetDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MKAFieldTallySummarySheetDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\MKAForm11DataSet.cs">
+      <DependentUpon>MKAForm11DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\MKAForm11DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MKAForm11DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\MKARegistrationCardDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MKARegistrationCardDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\MKAVoterIdCardDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MKAVoterIdCardDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\MKAVoterPhotoCardDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MKAVoterPhotoCardDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\MKAWardPhotoRollBookDataSet.cs">
+      <DependentUpon>MKAWardPhotoRollBookDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\MKAWardPhotoRollBookDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MKAWardPhotoRollBookDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\MKAWardRollBookDataSet.cs">
+      <DependentUpon>MKAWardRollBookDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\MKAWardRollBookDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MKAWardRollBookDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\MKAWardRollDeletionReport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MKAWardRollDeletionReport.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\PreFieldWorkSummaryDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PreFieldWorkSummaryDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\RegistrationCardDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RegistrationCardDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\RegistrationCardReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\RegistrationCardReport.Designer.cs">
+      <DependentUpon>RegistrationCardReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ScheduleLocationSummaryDataSet.cs">
+      <DependentUpon>ScheduleLocationSummaryDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ScheduleLocationSummaryDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ScheduleLocationSummaryDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\TransferInVoterDataSet.cs">
+      <DependentUpon>TransferInVoterDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\TransferInVoterDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TransferInVoterDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\TransferInVoterReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\TransferInVoterReport.Designer.cs">
+      <DependentUpon>TransferInVoterReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\VoterIdCardDataSet.cs">
+      <DependentUpon>VoterIdCardDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\VoterIdCardDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VoterIdCardDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\VoterIdCardReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\VoterIdCardReport.Designer.cs">
+      <DependentUpon>VoterIdCardReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\VoterPhotoCardDataSet.cs">
+      <DependentUpon>VoterPhotoCardDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\VoterPhotoCardDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VoterPhotoCardDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\VoterPhotoCardReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\VoterPhotoCardReport.Designer.cs">
+      <DependentUpon>VoterPhotoCardReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\WardPhotoRollBookDataSet.cs">
+      <DependentUpon>WardPhotoRollBookDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\WardPhotoRollBookDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WardPhotoRollBookDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\WardQualityCheckReportDataSet.cs">
+      <DependentUpon>WardQualityCheckReportDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\WardQualityCheckReportDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WardQualityCheckReportDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\WardRollBookDataSet.cs">
+      <DependentUpon>WardRollBookDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\WardRollBookDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WardRollBookDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\WardRollBookFinalReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\WardRollBookFinalReport.Designer.cs">
+      <DependentUpon>WardRollBookFinalReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\WardRollBookPreliminaryReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\WardRollBookPreliminaryReport.Designer.cs">
+      <DependentUpon>WardRollBookPreliminaryReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\WardRollBookReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\WardRollBookReport.Designer.cs">
+      <DependentUpon>WardRollBookReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\WardRollDeletionReport.cs">
+      <DependentUpon>WardRollDeletionReport.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\WardRollDeletionReport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WardRollDeletionReport.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\WardStatusDataSet.cs">
+      <DependentUpon>WardStatusDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\WardStatusDataSet.Designer.cs">
+      <DependentUpon>WardStatusDataSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="SplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashScreen.Designer.cs">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Content Include="Resources\RollCoverBack.png" />
+    <Content Include="Resources\RollCoverFront.png" />
+    <Content Include="Resources\splash_logo_left.png" />
+    <Content Include="Resources\splash_logo_right.png" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll" />
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll" />
+    <Content Include="SqlServerTypes\x86\msvcr120.dll" />
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll" />
+    <EmbeddedResource Include="Forms\AddDocument.resx">
+      <DependentUpon>AddDocument.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AuditTrialviewDetail.resx">
+      <DependentUpon>AuditTrialviewDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AugmentedRollStat.resx">
+      <DependentUpon>AugmentedRollStat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AugmentedRollStatUpdate.resx">
+      <DependentUpon>AugmentedRollStatUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ClanAdd.resx">
+      <DependentUpon>ClanAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DatabaseConnect.resx">
+      <DependentUpon>DatabaseConnect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ProductionToTraining.resx">
+      <DependentUpon>ProductionToTraining.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserActivityList.resx">
+      <DependentUpon>UserActivityList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Writ.resx">
+      <DependentUpon>Writ.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Device.resx">
+      <DependentUpon>Device.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\District.resx">
+      <DependentUpon>District.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DocumentList.resx">
+      <DependentUpon>DocumentList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DownloadProvincialFile.resx">
+      <DependentUpon>DownloadProvincialFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EnrolAttachment.resx">
+      <DependentUpon>EnrolAttachment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GeoClanList.resx">
+      <DependentUpon>GeoClanList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GeoStructureList.resx">
+      <DependentUpon>GeoStructureList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Clan.resx">
+      <DependentUpon>Clan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Location.resx">
+      <DependentUpon>Location.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MKAClan.resx">
+      <DependentUpon>MKAClan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MKAClanList.resx">
+      <DependentUpon>MKAClanList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MKADistrict.resx">
+      <DependentUpon>MKADistrict.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MKAEnrolmentForm.resx">
+      <DependentUpon>MKAEnrolmentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MKAFile.resx">
+      <DependentUpon>MKAFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ImportFromExcel.resx">
+      <DependentUpon>ImportFromExcel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LLGTransfer.resx">
+      <DependentUpon>LLGTransfer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MissingForm11Number.resx">
+      <DependentUpon>MissingForm11Number.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MKAGeoStructureList.resx">
+      <DependentUpon>MKAGeoStructureList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MKALLG.resx">
+      <DependentUpon>MKALLG.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MKALLGTransfer.resx">
+      <DependentUpon>MKALLGTransfer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MKALocation.resx">
+      <DependentUpon>MKALocation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MKALocationTransfer.resx">
+      <DependentUpon>MKALocationTransfer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MKAWard.resx">
+      <DependentUpon>MKAWard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MKAWardRollBookExportModel.resx">
+      <DependentUpon>MKAWardRollBookExportModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MKAWardStatus.resx">
+      <DependentUpon>MKAWardStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MKAWardTransfer.resx">
+      <DependentUpon>MKAWardTransfer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MKARollStat.resx">
+      <DependentUpon>MKARollStat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\WritList.resx">
+      <DependentUpon>WritList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\WardQualityCheck.resx">
+      <DependentUpon>WardQualityCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EnrolmentForm.resx">
+      <DependentUpon>EnrolmentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\File.resx">
+      <DependentUpon>File.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GeoStructure.resx">
+      <DependentUpon>GeoStructure.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ImportBioDataDeails.resx">
+      <DependentUpon>ImportBioDataDeails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ImportBioDetailsStatusType.resx">
+      <DependentUpon>ImportBioDetailsStatusType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ListDevice.resx">
+      <DependentUpon>ListDevice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ListUser.resx">
+      <DependentUpon>ListUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LLG.resx">
+      <DependentUpon>LLG.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LoadingWindow.resx">
+      <DependentUpon>LoadingWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LocationTransfer.resx">
+      <DependentUpon>LocationTransfer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Occupation.resx">
+      <DependentUpon>Occupation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OccupationList.resx">
+      <DependentUpon>OccupationList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Province.resx">
+      <DependentUpon>Province.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Region.resx">
+      <DependentUpon>Region.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RejectedReason.resx">
+      <DependentUpon>RejectedReason.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ResetPassword.resx">
+      <DependentUpon>ResetPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ScheduleLocSummary.resx">
+      <DependentUpon>ScheduleLocSummary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Setting.resx">
+      <DependentUpon>Setting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TransferInVoter.resx">
+      <DependentUpon>TransferInVoter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TransferVoter.resx">
+      <DependentUpon>TransferVoter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\User.resx">
+      <DependentUpon>User.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ViewComment.resx">
+      <DependentUpon>ViewComment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ROVoterDetails.resx">
+      <DependentUpon>ROVoterDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\VoterDetails.resx">
+      <DependentUpon>VoterDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Ward.resx">
+      <DependentUpon>Ward.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\WardRollBookExportModel.resx">
+      <DependentUpon>WardRollBookExportModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\WardStatus.resx">
+      <DependentUpon>WardStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\WardTransfer.resx">
+      <DependentUpon>WardTransfer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\WritPrintOptions.resx">
+      <DependentUpon>WritPrintOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ZomeImage.resx">
+      <DependentUpon>ZomeImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainMaster.resx">
+      <DependentUpon>MainMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Content Include="Maps.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="pngec_32x32.ico" />
+    <Content Include="Report\ScheduleLocationSummary.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\SubVoterIdCard.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\SubVoterPhotoCard.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\VoterIdCard.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\DuplicateVoter.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\TransferInVoter.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\AugmentedRollStat.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\Form11.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\SubForm11.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\SubWardPhotoRollBook.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\SubWardPhotoRollBookFinal.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\SubWardPhotoRollBookPreliminary.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\WardRollEnvelope.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\PreFieldWorkSummary.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\ExisitngVoterDetails.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\SubExisitngVoterDetails.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\SubWardRollDeletionReport - Copy.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\FieldTallySummarySheet.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\WardQualityCheckReport.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\MKAForm11.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\SubMKAForm11.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\MKARegistrationCard.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\MKASubRegistrationCard.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\SubMKAWardPhotoRollBook.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\SubMKAWardPhotoRollBookFinal.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\SubMKAWardPhotoRollBookPreliminary.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\SubMKAVoterIdCard.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\SubMKAVoterPhotoCard.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\MKAWardRollBook_bakup_of_remove_ward_group_before.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\MKAWardPhotoRollBook_bakup_of_remove_ward_group_before.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\MKAWardPhotoRollBookFinal_bakup_of_remove_ward_group_before.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\MKAWardPhotoRollBookPreliminary_bakup_of_remove_ward_group_before.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\MKAWardPhotoRollBookFinal.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\MKAFieldTallySummarySheet.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\MKAWardRollBookFinalLocation.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\MKAVoterIdCardNew.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\MKAVoterIdCardNew_backup.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="Report\ElectionWrit.rdlc" />
+    <Content Include="Report\FieldTallySummarySheetNew.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="Report\MKAWardRollBookFinal_bakup_of_remove_ward_group_before.rdlc" />
+    <Content Include="Report\MKAWardRollBookPreliminaryLocation.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="Report\MKAWardRollBookPreliminary_bakup_of_remove_ward_group_before.rdlc" />
+    <Content Include="Report\SubMKAWardPhotoRollBook_bakup_of_remove_ward_group_before.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\SubMKAWardPhotoRollBookPreliminary_bakup_of_remove_ward_group_before.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\SubMKAWardPhotoRollBookFinal_bakup_of_remove_ward_group_before.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\SubMKAVoterIdCardNewFront.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\SubMKAVoterIdCardNewBack.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="Report\SubElectionWrit.rdlc" />
+    <EmbeddedResource Include="Report\TransferInVoterReport.resx">
+      <DependentUpon>TransferInVoterReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <Content Include="Report\MKAVoterIdCard.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="Report\VoterIdCardReport.resx">
+      <DependentUpon>VoterIdCardReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <Content Include="Report\VoterPhotoCard.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\MKAVoterPhotoCard.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="Report\VoterPhotoCardReport.resx">
+      <DependentUpon>VoterPhotoCardReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <Content Include="Report\WardPhotoRollBook.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\WardRollBookLandscap.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\WardRollBookFinal.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\RegistrationCard.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="Report\RegistrationCardReport.resx">
+      <DependentUpon>RegistrationCardReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <Content Include="Report\SubRegistrationCard.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\WardPhotoRollBookFinal.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\WardQualityCheckReport_old.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\MKAWardRollBook.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\MKAWardRollBookFinal.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\MKAWardPhotoRollBook.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\MKAWardPhotoRollBookPreliminary.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\WardPhotoRollBookPreliminary.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="Report\WardClanRollBook.rdlc" />
+    <EmbeddedResource Include="Report\WardClanRollBookFinal.rdlc" />
+    <EmbeddedResource Include="Report\WardClanRollBookPreliminary.rdlc" />
+    <EmbeddedResource Include="Report\WardRollBook.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\WardRollBookFinalReport.resx">
+      <DependentUpon>WardRollBookFinalReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <Content Include="Report\WardRollBookPreliminary.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\MKAWardRollBookPreliminary.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="Report\WardRollBookPreliminaryReport.resx">
+      <DependentUpon>WardRollBookPreliminaryReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\WardRollBookReport.resx">
+      <DependentUpon>WardRollBookReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <Content Include="Report\WardRollDeletionReportLocation.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\WardRollDeletionReport.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\SubWardRollDeletionReport.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\WardStatus.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\DataMigrationReport.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="SplashScreen.resx">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <Content Include="geolist.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="app.manifest">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Report\ElectionWritDataSet.xsc">
+      <DependentUpon>ElectionWritDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Report\ElectionWritDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>ElectionWritDataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Report\ElectionWritDataSet.xss">
+      <DependentUpon>ElectionWritDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\export_csv.png" />
+    <Content Include="Resources\HeaderImage.png" />
+    <None Include="Report\DataMigrationDataSet.xsc">
+      <DependentUpon>DataMigrationDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Report\DataMigrationDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataMigrationDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Report\DataMigrationDataSet.xss">
+      <DependentUpon>DataMigrationDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Report\ExisitngVoterDetailsDataSet.xsc">
+      <DependentUpon>ExisitngVoterDetailsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Report\ExisitngVoterDetailsDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ExisitngVoterDetailsDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Report\ExisitngVoterDetailsDataSet.xss">
+      <DependentUpon>ExisitngVoterDetailsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Report\FieldTallySummarySheetDataSet.xsc">
+      <DependentUpon>FieldTallySummarySheetDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Report\FieldTallySummarySheetDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FieldTallySummarySheetDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Report\FieldTallySummarySheetDataSet.xss">
+      <DependentUpon>FieldTallySummarySheetDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Report\MKAFieldTallySummarySheetDataSet.xsc">
+      <DependentUpon>MKAFieldTallySummarySheetDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Report\MKAFieldTallySummarySheetDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MKAFieldTallySummarySheetDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Report\MKAFieldTallySummarySheetDataSet.xss">
+      <DependentUpon>MKAFieldTallySummarySheetDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Report\MKAForm11DataSet.xsc">
+      <DependentUpon>MKAForm11DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Report\MKAForm11DataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MKAForm11DataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Report\MKAForm11DataSet.xss">
+      <DependentUpon>MKAForm11DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Report\MKARegistrationCardDataSet.xsc">
+      <DependentUpon>MKARegistrationCardDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Report\MKARegistrationCardDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MKARegistrationCardDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Report\MKARegistrationCardDataSet.xss">
+      <DependentUpon>MKARegistrationCardDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Report\MKAVoterIdCardDataSet.xsc">
+      <DependentUpon>MKAVoterIdCardDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Report\MKAVoterIdCardDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MKAVoterIdCardDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Report\MKAVoterIdCardDataSet.xss">
+      <DependentUpon>MKAVoterIdCardDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Report\MKAVoterPhotoCardDataSet.xsc">
+      <DependentUpon>MKAVoterPhotoCardDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Report\MKAVoterPhotoCardDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MKAVoterPhotoCardDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Report\MKAVoterPhotoCardDataSet.xss">
+      <DependentUpon>MKAVoterPhotoCardDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Report\MKAWardPhotoRollBookDataSet.xsc">
+      <DependentUpon>MKAWardPhotoRollBookDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Report\MKAWardPhotoRollBookDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MKAWardPhotoRollBookDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Report\MKAWardPhotoRollBookDataSet.xss">
+      <DependentUpon>MKAWardPhotoRollBookDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Report\MKAWardRollBookDataSet.xsc">
+      <DependentUpon>MKAWardRollBookDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Report\MKAWardRollBookDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MKAWardRollBookDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Report\MKAWardRollBookDataSet.xss">
+      <DependentUpon>MKAWardRollBookDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Report\MKAWardRollDeletionReport.xsc">
+      <DependentUpon>MKAWardRollDeletionReport.xsd</DependentUpon>
+    </None>
+    <None Include="Report\MKAWardRollDeletionReport.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MKAWardRollDeletionReport.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Report\MKAWardRollDeletionReport.xss">
+      <DependentUpon>MKAWardRollDeletionReport.xsd</DependentUpon>
+    </None>
+    <None Include="Report\PreFieldWorkSummaryDataSet.xsc">
+      <DependentUpon>PreFieldWorkSummaryDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Report\PreFieldWorkSummaryDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PreFieldWorkSummaryDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Report\PreFieldWorkSummaryDataSet.xss">
+      <DependentUpon>PreFieldWorkSummaryDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Report\WardQualityCheckReportDataSet.xsc">
+      <DependentUpon>WardQualityCheckReportDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Report\WardQualityCheckReportDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>WardQualityCheckReportDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Report\WardQualityCheckReportDataSet.xss">
+      <DependentUpon>WardQualityCheckReportDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Report\WardRollDeletionReport.xsc">
+      <DependentUpon>WardRollDeletionReport.xsd</DependentUpon>
+    </None>
+    <None Include="Report\WardRollDeletionReport.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>WardRollDeletionReport.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Report\WardRollDeletionReport.xss">
+      <DependentUpon>WardRollDeletionReport.xsd</DependentUpon>
+    </None>
+    <None Include="Report\WardStatusDataSet.xsc">
+      <DependentUpon>WardStatusDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Report\WardStatusDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>WardStatusDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Report\WardStatusDataSet.xss">
+      <DependentUpon>WardStatusDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Resources\loader1.gif.bmp" />
+    <None Include="Resources\loader1.gif" />
+    <Content Include="Resources\logo.png" />
+    <None Include="Report\AugmentedRollStatDataSet.xsc">
+      <DependentUpon>AugmentedRollStatDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Report\AugmentedRollStatDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AugmentedRollStatDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Report\AugmentedRollStatDataSet.xss">
+      <DependentUpon>AugmentedRollStatDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Report\DuplicateVoterDataSet.xsc">
+      <DependentUpon>DuplicateVoterDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Report\DuplicateVoterDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DuplicateVoterDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Report\DuplicateVoterDataSet.xss">
+      <DependentUpon>DuplicateVoterDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Report\Form11DataSet.xsc">
+      <DependentUpon>Form11DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Report\Form11DataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Form11DataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Report\Form11DataSet.xss">
+      <DependentUpon>Form11DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Report\RegistrationCardDataSet.xsc">
+      <DependentUpon>RegistrationCardDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Report\RegistrationCardDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RegistrationCardDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Report\RegistrationCardDataSet.xss">
+      <DependentUpon>RegistrationCardDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Report\ScheduleLocationSummaryDataSet.xsc">
+      <DependentUpon>ScheduleLocationSummaryDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Report\ScheduleLocationSummaryDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ScheduleLocationSummaryDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Report\ScheduleLocationSummaryDataSet.xss">
+      <DependentUpon>ScheduleLocationSummaryDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Report\TransferInVoterDataSet.xsc">
+      <DependentUpon>TransferInVoterDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Report\TransferInVoterDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TransferInVoterDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Report\TransferInVoterDataSet.xss">
+      <DependentUpon>TransferInVoterDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Report\VoterIdCardDataSet.xsc">
+      <DependentUpon>VoterIdCardDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Report\VoterIdCardDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>VoterIdCardDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Report\VoterIdCardDataSet.xss">
+      <DependentUpon>VoterIdCardDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Report\VoterPhotoCardDataSet.xsc">
+      <DependentUpon>VoterPhotoCardDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Report\VoterPhotoCardDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>VoterPhotoCardDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Report\VoterPhotoCardDataSet.xss">
+      <DependentUpon>VoterPhotoCardDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Report\WardPhotoRollBookDataSet.xsc">
+      <DependentUpon>WardPhotoRollBookDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Report\WardPhotoRollBookDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>WardPhotoRollBookDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Report\WardPhotoRollBookDataSet.xss">
+      <DependentUpon>WardPhotoRollBookDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Report\WardRollBookDataSet.xsc">
+      <DependentUpon>WardRollBookDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Report\WardRollBookDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>WardRollBookDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Report\WardRollBookDataSet.xss">
+      <DependentUpon>WardRollBookDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Resources\noimage.png" />
+    <Content Include="Resources\pngec_16x16.ico" />
+    <Content Include="Resources\pngec_32x32.ico" />
+    <Content Include="Resources\refresh.png" />
+    <Content Include="Resources\search-image.png" />
+    <Content Include="Resources\splash_logo.png" />
+    <None Include="Resources\searchicon.png" />
+    <Content Include="Resources\Splash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PNGEC.API.Domain\PNGEC.API.Domain.csproj">
+      <Project>{79CA7ACD-CADD-4B63-863F-AAAF77CC57B5}</Project>
+      <Name>PNGEC.API.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PNGEC.API.Helper\PNGEC.API.Helper.csproj">
+      <Project>{D8C3A722-E23F-4A68-A718-1AC728BD093A}</Project>
+      <Name>PNGEC.API.Helper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

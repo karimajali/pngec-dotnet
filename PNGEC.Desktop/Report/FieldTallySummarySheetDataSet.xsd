@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="FieldTallySummarySheetDataSet" targetNamespace="http://tempuri.org/FieldTallySummarySheetDataSet.xsd" xmlns:mstns="http://tempuri.org/FieldTallySummarySheetDataSet.xsd" xmlns="http://tempuri.org/FieldTallySummarySheetDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="FieldTallySummarySheetDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="FieldTallySummarySheetDataSet" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="FieldTallySummarySheetDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tblFieldTallySummarySheet" msprop:Generator_RowEvHandlerName="tblFieldTallySummarySheetRowChangeEventHandler" msprop:Generator_RowDeletedName="tblFieldTallySummarySheetRowDeleted" msprop:Generator_RowDeletingName="tblFieldTallySummarySheetRowDeleting" msprop:Generator_RowEvArgName="tblFieldTallySummarySheetRowChangeEvent" msprop:Generator_TablePropName="tblFieldTallySummarySheet" msprop:Generator_RowChangedName="tblFieldTallySummarySheetRowChanged" msprop:Generator_UserTableName="tblFieldTallySummarySheet" msprop:Generator_RowChangingName="tblFieldTallySummarySheetRowChanging" msprop:Generator_RowClassName="tblFieldTallySummarySheetRow" msprop:Generator_TableClassName="tblFieldTallySummarySheetDataTable" msprop:Generator_TableVarName="tabletblFieldTallySummarySheet">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Wards" msprop:Generator_ColumnPropNameInTable="WardsColumn" msprop:Generator_ColumnPropNameInRow="Wards" msprop:Generator_UserColumnName="Wards" msprop:Generator_ColumnVarNameInTable="columnWards" type="xs:string" minOccurs="0" />
+              <xs:element name="TransferinWithinProvince" msprop:Generator_ColumnPropNameInTable="TransferinWithinProvinceColumn" msprop:Generator_ColumnPropNameInRow="TransferinWithinProvince" msprop:Generator_UserColumnName="TransferinWithinProvince" msprop:Generator_ColumnVarNameInTable="columnTransferinWithinProvince" type="xs:string" minOccurs="0" />
+              <xs:element name="TransferinFromDifferentProvince" msprop:Generator_ColumnPropNameInTable="TransferinFromDifferentProvinceColumn" msprop:Generator_ColumnPropNameInRow="TransferinFromDifferentProvince" msprop:Generator_UserColumnName="TransferinFromDifferentProvince" msprop:Generator_ColumnVarNameInTable="columnTransferinFromDifferentProvince" type="xs:string" minOccurs="0" />
+              <xs:element name="Ghost" msprop:Generator_ColumnPropNameInTable="GhostColumn" msprop:Generator_ColumnPropNameInRow="Ghost" msprop:Generator_UserColumnName="Ghost" msprop:Generator_ColumnVarNameInTable="columnGhost" type="xs:string" minOccurs="0" />
+              <xs:element name="Duplicates" msprop:Generator_ColumnPropNameInTable="DuplicatesColumn" msprop:Generator_ColumnPropNameInRow="Duplicates" msprop:Generator_UserColumnName="Duplicates" msprop:Generator_ColumnVarNameInTable="columnDuplicates" type="xs:string" minOccurs="0" />
+              <xs:element name="TransferOut" msprop:Generator_ColumnPropNameInTable="TransferOutColumn" msprop:Generator_ColumnPropNameInRow="TransferOut" msprop:Generator_UserColumnName="TransferOut" msprop:Generator_ColumnVarNameInTable="columnTransferOut" type="xs:string" minOccurs="0" />
+              <xs:element name="Deceased" msprop:Generator_ColumnPropNameInTable="DeceasedColumn" msprop:Generator_ColumnPropNameInRow="Deceased" msprop:Generator_UserColumnName="Deceased" msprop:Generator_ColumnVarNameInTable="columnDeceased" type="xs:string" minOccurs="0" />
+              <xs:element name="UnderAged" msprop:Generator_ColumnPropNameInTable="UnderAgedColumn" msprop:Generator_ColumnPropNameInRow="UnderAged" msprop:Generator_UserColumnName="UnderAged" msprop:Generator_ColumnVarNameInTable="columnUnderAged" type="xs:string" minOccurs="0" />
+              <xs:element name="Updated" msprop:Generator_ColumnPropNameInTable="UpdatedColumn" msprop:Generator_ColumnPropNameInRow="Updated" msprop:Generator_UserColumnName="Updated" msprop:Generator_ColumnVarNameInTable="columnUpdated" type="xs:string" minOccurs="0" />
+              <xs:element name="WardId" msprop:Generator_ColumnPropNameInTable="WardIdColumn" msprop:Generator_ColumnPropNameInRow="WardId" msprop:Generator_UserColumnName="WardId" msprop:Generator_ColumnVarNameInTable="columnWardId" type="xs:int" />
+              <xs:element name="New" msprop:Generator_ColumnPropNameInRow="New" msprop:Generator_ColumnPropNameInTable="NewColumn" msprop:Generator_ColumnVarNameInTable="columnNew" msprop:Generator_UserColumnName="New" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tblFieldTallySummarySheet" />
+      <xs:field xpath="mstns:WardId" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

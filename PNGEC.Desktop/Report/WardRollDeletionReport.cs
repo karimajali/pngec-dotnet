@@ -1,0 +1,18 @@
+﻿namespace PNGEC.Desktop.Report
+{
+}
+
+namespace PNGEC.Desktop.Report
+{
+
+
+    public partial class WardRollDeletionReport
+    {
+    }
+}
+namespace PNGEC.Desktop.Report {
+    
+    
+    public partial class WardRollDeletionReport {
+    }
+}

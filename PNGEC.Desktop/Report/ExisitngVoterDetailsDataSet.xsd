@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ExisitngVoterDetailsDataSet" targetNamespace="http://tempuri.org/ExisitngVoterDetailsDataSet.xsd" xmlns:mstns="http://tempuri.org/ExisitngVoterDetailsDataSet.xsd" xmlns="http://tempuri.org/ExisitngVoterDetailsDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ExisitngVoterDetailsDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ExisitngVoterDetailsDataSet" msprop:Generator_UserDSName="ExisitngVoterDetailsDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tblExisitngVoterDetails" msprop:Generator_TableClassName="tblExisitngVoterDetailsDataTable" msprop:Generator_TableVarName="tabletblExisitngVoterDetails" msprop:Generator_TablePropName="tblExisitngVoterDetails" msprop:Generator_RowDeletingName="tblExisitngVoterDetailsRowDeleting" msprop:Generator_RowChangingName="tblExisitngVoterDetailsRowChanging" msprop:Generator_RowEvHandlerName="tblExisitngVoterDetailsRowChangeEventHandler" msprop:Generator_RowDeletedName="tblExisitngVoterDetailsRowDeleted" msprop:Generator_UserTableName="tblExisitngVoterDetails" msprop:Generator_RowChangedName="tblExisitngVoterDetailsRowChanged" msprop:Generator_RowEvArgName="tblExisitngVoterDetailsRowChangeEvent" msprop:Generator_RowClassName="tblExisitngVoterDetailsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Seq" msprop:Generator_ColumnVarNameInTable="columnSeq" msprop:Generator_ColumnPropNameInRow="Seq" msprop:Generator_ColumnPropNameInTable="SeqColumn" msprop:Generator_UserColumnName="Seq" type="xs:int" minOccurs="0" />
+              <xs:element name="ElectorId" msprop:Generator_ColumnVarNameInTable="columnElectorId" msprop:Generator_ColumnPropNameInRow="ElectorId" msprop:Generator_ColumnPropNameInTable="ElectorIdColumn" msprop:Generator_UserColumnName="ElectorId" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblSubExisitngVoterDetails" msprop:Generator_TableClassName="tblSubExisitngVoterDetailsDataTable" msprop:Generator_TableVarName="tabletblSubExisitngVoterDetails" msprop:Generator_TablePropName="tblSubExisitngVoterDetails" msprop:Generator_RowDeletingName="tblSubExisitngVoterDetailsRowDeleting" msprop:Generator_RowChangingName="tblSubExisitngVoterDetailsRowChanging" msprop:Generator_RowEvHandlerName="tblSubExisitngVoterDetailsRowChangeEventHandler" msprop:Generator_RowDeletedName="tblSubExisitngVoterDetailsRowDeleted" msprop:Generator_UserTableName="tblSubExisitngVoterDetails" msprop:Generator_RowChangedName="tblSubExisitngVoterDetailsRowChanged" msprop:Generator_RowEvArgName="tblSubExisitngVoterDetailsRowChangeEvent" msprop:Generator_RowClassName="tblSubExisitngVoterDetailsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ElectorId" msprop:Generator_ColumnVarNameInTable="columnElectorId" msprop:Generator_ColumnPropNameInRow="ElectorId" msprop:Generator_ColumnPropNameInTable="ElectorIdColumn" msprop:Generator_UserColumnName="ElectorId" type="xs:string" minOccurs="0" />
+              <xs:element name="LName" msprop:Generator_ColumnVarNameInTable="columnLName" msprop:Generator_ColumnPropNameInRow="LName" msprop:Generator_ColumnPropNameInTable="LNameColumn" msprop:Generator_UserColumnName="LName" type="xs:string" minOccurs="0" />
+              <xs:element name="FName" msprop:Generator_ColumnVarNameInTable="columnFName" msprop:Generator_ColumnPropNameInRow="FName" msprop:Generator_ColumnPropNameInTable="FNameColumn" msprop:Generator_UserColumnName="FName" type="xs:string" minOccurs="0" />
+              <xs:element name="NatIDRecordNo" msprop:Generator_ColumnVarNameInTable="columnNatIDRecordNo" msprop:Generator_ColumnPropNameInRow="NatIDRecordNo" msprop:Generator_ColumnPropNameInTable="NatIDRecordNoColumn" msprop:Generator_UserColumnName="NatIDRecordNo" type="xs:string" minOccurs="0" />
+              <xs:element name="Gender" msprop:Generator_ColumnVarNameInTable="columnGender" msprop:Generator_ColumnPropNameInRow="Gender" msprop:Generator_ColumnPropNameInTable="GenderColumn" msprop:Generator_UserColumnName="Gender" type="xs:string" minOccurs="0" />
+              <xs:element name="DateOfBirth" msprop:Generator_ColumnVarNameInTable="columnDateOfBirth" msprop:Generator_ColumnPropNameInRow="DateOfBirth" msprop:Generator_ColumnPropNameInTable="DateOfBirthColumn" msprop:Generator_UserColumnName="DateOfBirth" type="xs:string" minOccurs="0" />
+              <xs:element name="PlaceOfBirth" msprop:Generator_ColumnVarNameInTable="columnPlaceOfBirth" msprop:Generator_ColumnPropNameInRow="PlaceOfBirth" msprop:Generator_ColumnPropNameInTable="PlaceOfBirthColumn" msprop:Generator_UserColumnName="PlaceOfBirth" type="xs:string" minOccurs="0" />
+              <xs:element name="ProvOfBirthName" msprop:Generator_ColumnVarNameInTable="columnProvOfBirthName" msprop:Generator_ColumnPropNameInRow="ProvOfBirthName" msprop:Generator_ColumnPropNameInTable="ProvOfBirthNameColumn" msprop:Generator_UserColumnName="ProvOfBirthName" type="xs:string" minOccurs="0" />
+              <xs:element name="Occupation" msprop:Generator_ColumnVarNameInTable="columnOccupation" msprop:Generator_ColumnPropNameInRow="Occupation" msprop:Generator_ColumnPropNameInTable="OccupationColumn" msprop:Generator_UserColumnName="Occupation" type="xs:string" minOccurs="0" />
+              <xs:element name="WithDisability" msprop:Generator_ColumnVarNameInTable="columnWithDisability" msprop:Generator_ColumnPropNameInRow="WithDisability" msprop:Generator_ColumnPropNameInTable="WithDisabilityColumn" msprop:Generator_UserColumnName="WithDisability" type="xs:string" minOccurs="0" />
+              <xs:element name="Clan" msprop:Generator_ColumnVarNameInTable="columnClan" msprop:Generator_ColumnPropNameInRow="Clan" msprop:Generator_ColumnPropNameInTable="ClanColumn" msprop:Generator_UserColumnName="Clan" type="xs:string" minOccurs="0" />
+              <xs:element name="Religion" msprop:Generator_ColumnVarNameInTable="columnReligion" msprop:Generator_ColumnPropNameInRow="Religion" msprop:Generator_ColumnPropNameInTable="ReligionColumn" msprop:Generator_UserColumnName="Religion" type="xs:string" minOccurs="0" />
+              <xs:element name="Location" msprop:Generator_ColumnVarNameInTable="columnLocation" msprop:Generator_ColumnPropNameInRow="Location" msprop:Generator_ColumnPropNameInTable="LocationColumn" msprop:Generator_UserColumnName="Location" type="xs:string" minOccurs="0" />
+              <xs:element name="Seq" msprop:Generator_ColumnVarNameInTable="columnSeq" msprop:Generator_ColumnPropNameInRow="Seq" msprop:Generator_ColumnPropNameInTable="SeqColumn" msprop:Generator_UserColumnName="Seq" type="xs:int" minOccurs="0" />
+              <xs:element name="DataColumn1" msprop:Generator_ColumnVarNameInTable="columnDataColumn1" msprop:Generator_ColumnPropNameInRow="DataColumn1" msprop:Generator_ColumnPropNameInTable="DataColumn1Column" msprop:Generator_UserColumnName="DataColumn1" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="tblExisitngVoterDetails_PK_Seq_tblSubExisitngVoterDetails_FK_Seq" msdata:parent="tblExisitngVoterDetails" msdata:child="tblSubExisitngVoterDetails" msdata:parentkey="Seq" msdata:childkey="Seq" msprop:Generator_UserChildTable="tblSubExisitngVoterDetails" msprop:Generator_ChildPropName="GettblSubExisitngVoterDetailsRows" msprop:Generator_UserRelationName="tblExisitngVoterDetails_PK_Seq_tblSubExisitngVoterDetails_FK_Seq" msprop:Generator_ParentPropName="tblExisitngVoterDetailsRow" msprop:Generator_RelationVarName="relationtblExisitngVoterDetails_PK_Seq_tblSubExisitngVoterDetails_FK_Seq" msprop:Generator_UserParentTable="tblExisitngVoterDetails" />
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>
