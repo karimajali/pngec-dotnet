@@ -148,6 +148,10 @@
     <Compile Include="User\UserService.cs" />
     <Compile Include="Voter\IVoterService.cs" />
     <Compile Include="Voter\VoterService.cs" />
+    <Compile Include="Voter\ISyncV2Service.cs" />
+    <Compile Include="Voter\SyncV2Service.cs" />
+    <Compile Include="SevisPass\ISevisPassService.cs" />
+    <Compile Include="SevisPass\SevisPassService.cs" />
     <Compile Include="WritRO\IWritROService.cs" />
     <Compile Include="WritRO\WritROService.cs" />
     <Compile Include="Writ\WritService.cs" />

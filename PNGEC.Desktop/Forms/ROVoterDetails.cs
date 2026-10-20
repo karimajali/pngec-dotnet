@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -655,8 +655,13 @@ namespace PNGEC.Desktop.Forms
             txtFamilyName.Text = model.FamilyName;
             txtFamilyOrderNo.Text = Convert.ToString(model.FamilySortOrder);
             txtLastName.Text = model.LName;
-            txtGivenName.Text = model.FName;
             txtNationalIdCardNumber.Text = model.NatIDRecordNo;
+            if (!string.IsNullOrEmpty(model.SevisPassId))
+            {
+                txtNationalIdCardNumber.Text = string.IsNullOrEmpty(model.NatIDRecordNo)
+                    ? $"{model.SevisPassId} [SevisPass: {model.SevisPassStatus}]"
+                    : $"{model.NatIDRecordNo} | SevisPass: {model.SevisPassId} [{model.SevisPassStatus}]";
+            }
             if (model.DOB != null && model.DOB != Convert.ToDateTime("01-01-0001 00:00:00"))
             {
                 dtpDateOfBirth.Value = Convert.ToDateTime(model.DOB).Date;
@@ -753,6 +758,12 @@ namespace PNGEC.Desktop.Forms
             cmbVoterStatus.Text = model.Status;
             //cmbVoterStatus.Enabled = false;
             txtComment.Text = model.Comment;
+            if (!string.IsNullOrEmpty(model.SevisPassDiscrepancy))
+            {
+                txtComment.Text = string.IsNullOrEmpty(model.Comment)
+                    ? $"[SevisPass Discrepancy: {model.SevisPassDiscrepancy}]"
+                    : $"{model.Comment} | [SevisPass: {model.SevisPassDiscrepancy}]";
+            }
 
             txtlat.Text = Convert.ToString(model.Lat);
             txtlong.Text = Convert.ToString(model.Long);

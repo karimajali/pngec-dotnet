@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using PNGEC.API.Service.AugmentedRollStat;
@@ -80,6 +80,8 @@ namespace PNGEC.API
             services.AddScoped<IWritROService>(c => new WritROService(connection));
             services.AddScoped<IActivityLogService>(c => new ActivityLogService(connection));
             services.AddScoped<IProductionToTrainingService>(c => new ProductionToTrainingService(connection));
+            services.AddScoped<PNGEC.API.Service.SevisPass.ISevisPassService>(c => new PNGEC.API.Service.SevisPass.SevisPassService(connection));
+            services.AddScoped<ISyncV2Service>(c => new SyncV2Service(connection, apiURL));
         }
 
         /// <summary>

@@ -1,4 +1,4 @@
-﻿using Microsoft.Reporting.WinForms;
+using Microsoft.Reporting.WinForms;
 using PNGEC.API.Domain;
 using PNGEC.API.Domain.Clan;
 using PNGEC.API.Domain.Listing;
@@ -2896,6 +2896,27 @@ namespace PNGEC.Desktop.Forms
                     this.dgFile.Columns["ClanName"].HeaderText = "Clan";
                     this.dgFile.Columns["ClanName"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
 
+                    if (this.dgFile.Columns.Contains("SevisPassId"))
+                    {
+                        this.dgFile.Columns["SevisPassId"].HeaderText = "SevisPass ID";
+                        this.dgFile.Columns["SevisPassId"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                        this.dgFile.Columns["SevisPassId"].Visible = true;
+                    }
+                    if (this.dgFile.Columns.Contains("SevisPassStatus"))
+                    {
+                        this.dgFile.Columns["SevisPassStatus"].HeaderText = "SevisPass Status";
+                        this.dgFile.Columns["SevisPassStatus"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                        this.dgFile.Columns["SevisPassStatus"].Visible = true;
+                    }
+                    if (this.dgFile.Columns.Contains("SevisPassVerifiedDate"))
+                    {
+                        this.dgFile.Columns["SevisPassVerifiedDate"].Visible = false;
+                    }
+                    if (this.dgFile.Columns.Contains("SevisPassDiscrepancy"))
+                    {
+                        this.dgFile.Columns["SevisPassDiscrepancy"].Visible = false;
+                    }
+
                     if (this.pageName == "TransferOut" || this.pageName == "TransferInApproval")
                     {
                         this.dgFile.Columns["Gen"].HeaderText = "Gender";
@@ -3138,6 +3159,27 @@ namespace PNGEC.Desktop.Forms
                     this.dgFile.Columns["WardName"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
                     this.dgFile.Columns["LocationName"].HeaderText = "Location";
                     this.dgFile.Columns["LocationName"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+
+                    if (this.dgFile.Columns.Contains("SevisPassId"))
+                    {
+                        this.dgFile.Columns["SevisPassId"].HeaderText = "SevisPass ID";
+                        this.dgFile.Columns["SevisPassId"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                        this.dgFile.Columns["SevisPassId"].Visible = true;
+                    }
+                    if (this.dgFile.Columns.Contains("SevisPassStatus"))
+                    {
+                        this.dgFile.Columns["SevisPassStatus"].HeaderText = "SevisPass Status";
+                        this.dgFile.Columns["SevisPassStatus"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                        this.dgFile.Columns["SevisPassStatus"].Visible = true;
+                    }
+                    if (this.dgFile.Columns.Contains("SevisPassVerifiedDate"))
+                    {
+                        this.dgFile.Columns["SevisPassVerifiedDate"].Visible = false;
+                    }
+                    if (this.dgFile.Columns.Contains("SevisPassDiscrepancy"))
+                    {
+                        this.dgFile.Columns["SevisPassDiscrepancy"].Visible = false;
+                    }
 
                     this.dgFile.Columns["DuplicateElectorId"].HeaderText = "Duplicate Elector Id";
                     this.dgFile.Columns["DuplicateLName"].Visible = false;

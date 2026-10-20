@@ -29,6 +29,9 @@ packages/
 *.bak
 *.ldf
 *.mdf
+DatabaseScripts/**/OfflineRolls/
+*.db
+*.sha256
 
 # System & OS files
 Thumbs.db

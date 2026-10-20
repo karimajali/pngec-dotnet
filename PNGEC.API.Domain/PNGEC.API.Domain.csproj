@@ -123,6 +123,7 @@
     <Compile Include="Mobile\Voter\TransferInVoterRequestModel.cs" />
     <Compile Include="Mobile\Voter\VoterAuditModel.cs" />
     <Compile Include="Mobile\Voter\VoterModel.cs" />
+    <Compile Include="Mobile\Voter\SyncV2Models.cs" />
     <Compile Include="Mobile\Voter\VoterRequestModel.cs" />
     <Compile Include="Mobile\Water\WaterModel.cs" />
     <Compile Include="Report\GetMKAWardClanSectionSummaryModel.cs" />

@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http;
 using System;
 
 namespace PNGEC.API.Domain.Mobile.Voter
@@ -1347,8 +1347,33 @@ namespace PNGEC.API.Domain.Mobile.Voter
         /// Get or Set ClanID
         /// </summary>
         public int ClanId { get; set; }
-           
 
+        #region Phase 1 & 2 Properties
+        /// <summary>
+        /// Client-generated unique ID (UUID) for idempotency and safe retries
+        /// </summary>
+        public string UploadId { get; set; }
+
+        /// <summary>
+        /// PNG National Digital ID (SevisPass)
+        /// </summary>
+        public string SevisPassId { get; set; }
+
+        /// <summary>
+        /// SevisPass verification status (Verified, Mismatch, NotFound, Pending)
+        /// </summary>
+        public string SevisPassStatus { get; set; }
+
+        /// <summary>
+        /// Date when SevisPass was verified
+        /// </summary>
+        public DateTime? SevisPassVerifiedDate { get; set; }
+
+        /// <summary>
+        /// SevisPass discrepancy details if verification mismatched
+        /// </summary>
+        public string SevisPassDiscrepancy { get; set; }
+        #endregion
 
     }
 
@@ -2694,7 +2719,32 @@ namespace PNGEC.API.Domain.Mobile.Voter
         /// </summary>
         public int clanId { get; set; }
 
-        
+        #region Phase 1 & 2 Properties
+        /// <summary>
+        /// Client-generated unique ID (UUID) for idempotency and safe retries
+        /// </summary>
+        public string UploadId { get; set; }
+
+        /// <summary>
+        /// PNG National Digital ID (SevisPass)
+        /// </summary>
+        public string SevisPassId { get; set; }
+
+        /// <summary>
+        /// SevisPass verification status (Verified, Mismatch, NotFound, Pending)
+        /// </summary>
+        public string SevisPassStatus { get; set; }
+
+        /// <summary>
+        /// Date when SevisPass was verified
+        /// </summary>
+        public DateTime? SevisPassVerifiedDate { get; set; }
+
+        /// <summary>
+        /// SevisPass discrepancy details if verification mismatched
+        /// </summary>
+        public string SevisPassDiscrepancy { get; set; }
+        #endregion
 
     }
 }
