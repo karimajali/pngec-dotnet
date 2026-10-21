@@ -57,7 +57,12 @@ namespace PNGEC.Desktop.Forms
         /// <summary>
         /// The filed array
         /// </summary>
-        private string[] filedArray = { "Status" };
+        private string[] filedArray = { "Status", "SevisPass" };
+
+        /// <summary>
+        /// The SevisPass status filter array
+        /// </summary>
+        private string[] SevisPassStatusArray = { "ALL", "Verified", "Mismatch", "NotFound", "Pending" };
 
         /// <summary>
         /// The status array
@@ -196,6 +201,9 @@ namespace PNGEC.Desktop.Forms
 
             dgFile.CellContentClick -= new DataGridViewCellEventHandler(dgFile_CellClick);
             dgFile.CellContentClick += new DataGridViewCellEventHandler(dgFile_CellClick);
+
+            dgFile.CellFormatting -= new DataGridViewCellFormattingEventHandler(dgFile_CellFormatting);
+            dgFile.CellFormatting += new DataGridViewCellFormattingEventHandler(dgFile_CellFormatting);
 
             GlobalsModel.mainMaster.TreeViewSelectedChanged -= TreeViewSelectedChanged_AfterSelect;
             GlobalsModel.mainMaster.TreeViewSelectedChanged += TreeViewSelectedChanged_AfterSelect;
@@ -2301,6 +2309,12 @@ namespace PNGEC.Desktop.Forms
         /// </summary>
         private void SatusComboboxBind()
         {
+            if (Convert.ToString(cmbFiled.SelectedValue) == "SevisPass")
+            {
+                cmbStatus.DataSource = SevisPassStatusArray;
+                return;
+            }
+
             if (GlobalsModel.LoggedUser.Database == CommonEnum.Database.Final && (this.pageName == "File" || this.pageName == "WardRollBook"))
             {
                 cmbStatus.DataSource = StatusArrayFinalDB;
@@ -6872,6 +6886,59 @@ namespace PNGEC.Desktop.Forms
 
             lstWardClanSectionSummary.Clear();
         }
+
+        #region SevisPass Color Coding
+        /// <summary>
+        /// Visual formatting and color coding for SevisPass verification status (Point 10)
+        /// </summary>
+        private void dgFile_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex < 0 || e.RowIndex >= this.dgFile.Rows.Count) return;
+
+                if (this.dgFile.Columns.Contains("SevisPassStatus"))
+                {
+                    var row = this.dgFile.Rows[e.RowIndex];
+                    var statusObj = row.Cells["SevisPassStatus"].Value;
+                    if (statusObj != null && !Convert.IsDBNull(statusObj))
+                    {
+                        string statusVal = statusObj.ToString().Trim();
+                        string colName = this.dgFile.Columns[e.ColumnIndex].Name;
+
+                        if (colName == "SevisPassStatus" || colName == "SevisPassId")
+                        {
+                            if (string.Equals(statusVal, "Verified", StringComparison.OrdinalIgnoreCase))
+                            {
+                                e.CellStyle.BackColor = Color.FromArgb(220, 245, 220); // LightGreen
+                                e.CellStyle.ForeColor = Color.DarkGreen;
+                                e.CellStyle.SelectionBackColor = Color.FromArgb(180, 230, 180);
+                                e.CellStyle.SelectionForeColor = Color.DarkGreen;
+                            }
+                            else if (string.Equals(statusVal, "Mismatch", StringComparison.OrdinalIgnoreCase))
+                            {
+                                e.CellStyle.BackColor = Color.FromArgb(255, 225, 225); // LightPink/Red
+                                e.CellStyle.ForeColor = Color.DarkRed;
+                                e.CellStyle.SelectionBackColor = Color.FromArgb(255, 190, 190);
+                                e.CellStyle.SelectionForeColor = Color.DarkRed;
+                            }
+                            else if (string.Equals(statusVal, "NotFound", StringComparison.OrdinalIgnoreCase))
+                            {
+                                e.CellStyle.BackColor = Color.FromArgb(255, 250, 205); // LightYellow
+                                e.CellStyle.ForeColor = Color.DarkGoldenrod;
+                                e.CellStyle.SelectionBackColor = Color.FromArgb(255, 240, 170);
+                                e.CellStyle.SelectionForeColor = Color.DarkGoldenrod;
+                            }
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                // Suppress formatting errors
+            }
+        }
+        #endregion
 
         #endregion
 

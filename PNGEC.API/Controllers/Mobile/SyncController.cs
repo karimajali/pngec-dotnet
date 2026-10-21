@@ -1,4 +1,6 @@
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PNGEC.API.Domain.Mobile.Voter;
@@ -10,6 +12,7 @@ namespace PNGEC.API.Controllers.Mobile
     /// <summary>
     /// Phase 1 Modular Idempotent Sync Endpoints
     /// Provides per-status sync, background batch sync, safe retries with UploadId, and separate image uploads.
+    /// Secured via JWT Bearer authentication with backward-compatible anonymous fallback.
     /// </summary>
     [Route("api/mobile/v2/[controller]")]
     [ApiController]

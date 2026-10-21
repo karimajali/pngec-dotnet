@@ -80,7 +80,19 @@ namespace PNGEC.API
             services.AddScoped<IWritROService>(c => new WritROService(connection));
             services.AddScoped<IActivityLogService>(c => new ActivityLogService(connection));
             services.AddScoped<IProductionToTrainingService>(c => new ProductionToTrainingService(connection));
-            services.AddScoped<PNGEC.API.Service.SevisPass.ISevisPassService>(c => new PNGEC.API.Service.SevisPass.SevisPassService(connection));
+            services.AddScoped<PNGEC.API.Service.SevisPass.ISevisPassService>(c =>
+            {
+                var config = c.GetService<Microsoft.Extensions.Configuration.IConfiguration>();
+                var gatewayUrl = config?["SevisPassSettings:GatewayUrl"] ?? "https://identity.dict.gov.pg/api/v1";
+                var clientId = config?["SevisPassSettings:ClientId"] ?? "PNGEC_ELECTION_PORTAL_CLIENT";
+                var clientSecret = config?["SevisPassSettings:ClientSecret"] ?? "Dict_SevisPass_Secret_Token_2026";
+                bool useSandbox = true;
+                if (config != null && bool.TryParse(config["SevisPassSettings:UseSandbox"], out bool parsedSandbox))
+                {
+                    useSandbox = parsedSandbox;
+                }
+                return new PNGEC.API.Service.SevisPass.SevisPassService(connection, gatewayUrl, clientId, clientSecret, useSandbox);
+            });
             services.AddScoped<ISyncV2Service>(c => new SyncV2Service(connection, apiURL));
         }
 

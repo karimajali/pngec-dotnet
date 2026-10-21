@@ -1,8 +1,12 @@
-﻿using Microsoft.AspNetCore.Builder;
+using System;
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
 
 namespace PNGEC.API
 {
@@ -26,6 +30,27 @@ namespace PNGEC.API
                 apiURL = Configuration.GetSection($"AppSettings:APIUrl").Value;
             }
 
+            // Configure Phase 1 JWT Bearer Token Authentication
+            string jwtKey = Configuration["JwtSettings:SecretKey"] ?? "PNGEC_Electoral_Roll_Secured_Key_2026_Dict_Portal_Key_1289!";
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(options =>
+            {
+                options.RequireHttpsMetadata = false;
+                options.SaveToken = true;
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey)),
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    ClockSkew = TimeSpan.Zero
+                };
+            });
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             #region Configuring Services
@@ -47,6 +72,7 @@ namespace PNGEC.API
             }
 
             app.UseHttpsRedirection();
+            app.UseAuthentication();
             app.UseMvc();
             app.CustomStaticFilesSettings();
         }

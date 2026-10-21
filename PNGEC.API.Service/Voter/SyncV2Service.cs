@@ -129,17 +129,40 @@ namespace PNGEC.API.Service.Voter
 
                         // 2. Process record via Modular Status Procedures
                         string cleanAction = (actionType ?? "NEW").ToUpperInvariant();
+                        if (cleanAction == "BATCH")
+                        {
+                            string vStatus = (voter.Status ?? "").ToUpperInvariant().Trim();
+                            if (vStatus == "TRANSFERRED IN" || vStatus == "TRANSFER_IN")
+                            {
+                                cleanAction = "TRANSFER_IN";
+                            }
+                            else if (vStatus == "UPDATE" || vStatus == "EDIT")
+                            {
+                                cleanAction = "UPDATE";
+                            }
+                            else if (vStatus == "NEW" || vStatus == "INSERT" || voter.ElectorId == 0)
+                            {
+                                cleanAction = "NEW";
+                            }
+                            else
+                            {
+                                cleanAction = "STATUS_CHANGE";
+                            }
+                        }
 
                         if (cleanAction == "NEW" || cleanAction == "INSERT")
                         {
+                            int wardId = voter.WardId > 0 ? voter.WardId : (voter.MKAWardId > 0 ? voter.MKAWardId : 0);
+                            int locationId = voter.LocationId > 0 ? voter.LocationId : (voter.MKALocationId > 0 ? voter.MKALocationId : 0);
+
                             using (var cmd = new SqlCommand("dbo.sp_Sync_New", con))
                             {
                                 cmd.CommandType = CommandType.StoredProcedure;
                                 cmd.Parameters.AddWithValue("@UploadId", voter.UploadId);
                                 cmd.Parameters.AddWithValue("@FName", (object)voter.FName ?? DBNull.Value);
                                 cmd.Parameters.AddWithValue("@LName", (object)voter.LName ?? DBNull.Value);
-                                cmd.Parameters.AddWithValue("@LocationId", voter.LocationId);
-                                cmd.Parameters.AddWithValue("@WardId", voter.WardId);
+                                cmd.Parameters.AddWithValue("@LocationId", locationId);
+                                cmd.Parameters.AddWithValue("@WardId", wardId);
                                 cmd.Parameters.AddWithValue("@DOB", (object)voter.DOB ?? DateTime.UtcNow.AddYears(-25));
                                 cmd.Parameters.AddWithValue("@Gender", (object)voter.Gender ?? "M");
                                 cmd.Parameters.AddWithValue("@UserId", request.UserId);
@@ -165,6 +188,27 @@ namespace PNGEC.API.Service.Voter
 
                                         if (recResult.IsSuccess) response.SuccessCount++;
                                         else response.FailedCount++;
+                                    }
+                                }
+                            }
+
+                            if (recResult.IsSuccess && recResult.ElectorId == 0)
+                            {
+                                await Task.Delay(250);
+                                using (var checkCmd = new SqlCommand("SELECT TOP 1 ElectorId, RecordNo, Status FROM dbo.tblSyncLog WHERE UploadId = @UpId", con))
+                                {
+                                    checkCmd.Parameters.AddWithValue("@UpId", voter.UploadId);
+                                    using (var checkReader = await checkCmd.ExecuteReaderAsync())
+                                    {
+                                        if (await checkReader.ReadAsync())
+                                        {
+                                            if (checkReader["ElectorId"] != DBNull.Value)
+                                            {
+                                                recResult.ElectorId = Convert.ToInt64(checkReader["ElectorId"]);
+                                                recResult.RecordNo = Convert.ToInt64(checkReader["RecordNo"]);
+                                                recResult.Status = checkReader["Status"]?.ToString() ?? "SUCCESS";
+                                            }
+                                        }
                                     }
                                 }
                             }

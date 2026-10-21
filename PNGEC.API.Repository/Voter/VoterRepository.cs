@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -294,8 +294,6 @@ namespace PNGEC.API.Repository.Voter
                 param.Add("@FamilySortOrder", model.FamilySortOrder);
                 param.Add("@dpo", model.dpo);
                 param.Add("@ClanId", model.ClanId);
-              
-                param.Add("@ClanId", model.ClanId);
 
 
                 ////This static ward id for KUPIANO TOWN(750) as per client requirements
@@ -366,7 +364,7 @@ namespace PNGEC.API.Repository.Voter
                     con.Open();
                 }
 
-                var electorId = await con.QueryFirstOrDefaultAsync<long>(squery, param, commandType: CommandType.StoredProcedure);
+                var electorId = await con.QueryFirstOrDefaultAsync<long?>(squery, param, commandType: CommandType.StoredProcedure) ?? 0;
 
                 if (con.State == ConnectionState.Open)
                 {
@@ -653,14 +651,14 @@ namespace PNGEC.API.Repository.Voter
 
                 DynamicParameters param = new DynamicParameters();
                 param.Add("@ProvinceId", voterReqModel.ProvinceId);
-                param.Add("@DistrictId", voterReqModel.DistrictId);
-                param.Add("@LLGId", voterReqModel.LLGId);
-                param.Add("@WardId", voterReqModel.WardId);
-                param.Add("@LocationId", voterReqModel.LocationId);
-                param.Add("@MKADistrictId", voterReqModel.DistrictId);
-                param.Add("@MKALLGId", voterReqModel.LLGId);
-                param.Add("@MKAWardId", voterReqModel.WardId);
-                param.Add("@MKALocationId", voterReqModel.LocationId);
+                param.Add("@DistrictId", voterReqModel.DistrictId != 0 ? voterReqModel.DistrictId : voterReqModel.MKADistrictId);
+                param.Add("@LLGId", voterReqModel.LLGId != 0 ? voterReqModel.LLGId : voterReqModel.MKALLGId);
+                param.Add("@WardId", voterReqModel.WardId != 0 ? voterReqModel.WardId : voterReqModel.MKAWardId);
+                param.Add("@LocationId", voterReqModel.LocationId != 0 ? voterReqModel.LocationId : voterReqModel.MKALocationId);
+                param.Add("@MKADistrictId", voterReqModel.MKADistrictId != 0 ? voterReqModel.MKADistrictId : voterReqModel.DistrictId);
+                param.Add("@MKALLGId", voterReqModel.MKALLGId != 0 ? voterReqModel.MKALLGId : voterReqModel.LLGId);
+                param.Add("@MKAWardId", voterReqModel.MKAWardId != 0 ? voterReqModel.MKAWardId : voterReqModel.WardId);
+                param.Add("@MKALocationId", voterReqModel.MKALocationId != 0 ? voterReqModel.MKALocationId : voterReqModel.LocationId);
                 param.Add("@PageNo", voterReqModel.PageNo);
                 param.Add("@PageSize", voterReqModel.PageSize);
 

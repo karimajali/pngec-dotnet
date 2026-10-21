@@ -109,6 +109,7 @@ BEGIN
 				BEGIN
 					SET @SubCondition = CASE
 						WHEN @FiledName = 'Status' THEN ' AND Roll.[' + @FiledName + '] = ''' + @FiledValue + ''''
+						WHEN @FiledName = 'SevisPass' THEN ' AND Roll.[SevisPassStatus] = ''' + @FiledValue + ''''
 						ELSE ''
 					END
 				END
@@ -116,6 +117,7 @@ BEGIN
 				BEGIN
 					SET @SubCondition = CASE
 						WHEN @FiledName = 'Status' THEN ' Roll.[' + @FiledName + '] = ''' + @FiledValue + ''''
+						WHEN @FiledName = 'SevisPass' THEN ' Roll.[SevisPassStatus] = ''' + @FiledValue + ''''
 						ELSE ''
 					END
 				END

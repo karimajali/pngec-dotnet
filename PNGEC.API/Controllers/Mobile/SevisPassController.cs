@@ -1,4 +1,6 @@
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PNGEC.API.Domain.Mobile.Voter;
 using PNGEC.API.Helper;
@@ -8,6 +10,7 @@ namespace PNGEC.API.Controllers.Mobile
 {
     /// <summary>
     /// Phase 2 SevisPass Identity Verification Controller (Server-to-Server)
+    /// Secured via JWT Bearer authentication.
     /// </summary>
     [Route("api/mobile/v2/[controller]")]
     [ApiController]
