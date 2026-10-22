@@ -20,7 +20,6 @@ namespace PNGEC.API.Controllers.Mobile
     /// <seealso cref="Microsoft.AspNetCore.Mvc.ControllerBase" />
     [Route("api/Mobile/[controller]")]
     [ApiController]
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class GeneralController : ControllerBase
     {
         #region variable declaration

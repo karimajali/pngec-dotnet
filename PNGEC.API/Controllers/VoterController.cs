@@ -11,7 +11,6 @@ namespace PNGEC.API.Controllers
 {
     [Route("api/mobile/[controller]")]
     [ApiController]
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class VoterController : Controller
     {
         #region variable declaration

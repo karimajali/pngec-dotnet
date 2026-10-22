@@ -90,8 +90,8 @@ namespace PNGEC.API
                     return;
                 }
 
-                // 2. Allow Swagger, static files, and desktop login routes
-                if (path == "/" || path.StartsWith("/static") || path.StartsWith("/api/user/userlogin") || path.StartsWith("/api/user/forgotpassword"))
+                // 2. Allow Swagger, static files, uploads, and desktop login routes
+                if (path == "/" || path.StartsWith("/static") || path.StartsWith("/uploads") || path.StartsWith("/api/user/userlogin") || path.StartsWith("/api/user/forgotpassword"))
                 {
                     await next();
                     return;
