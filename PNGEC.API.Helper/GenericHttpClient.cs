@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using PNGEC.API.Domain.Listing;
 using System;
 using System.Collections.Generic;
@@ -13,6 +13,37 @@ namespace PNGEC.API.Helper
 {
     public class GenericHttpClient
     {
+        private static readonly HttpClient _httpClient = new HttpClient
+        {
+            Timeout = TimeSpan.FromMinutes(5)
+        };
+
+        private static Uri GetTargetUri(string uri)
+        {
+            string baseUrl = Globals.serverURL;
+            if (string.IsNullOrWhiteSpace(baseUrl))
+            {
+                baseUrl = "http://localhost:57712/api/";
+            }
+            if (!baseUrl.EndsWith("/"))
+            {
+                baseUrl += "/";
+            }
+            return new Uri(new Uri(baseUrl), uri.TrimStart('/'));
+        }
+
+        private static HttpRequestMessage CreateRequest(HttpMethod method, string uri, HttpContent content = null)
+        {
+            var request = new HttpRequestMessage(method, GetTargetUri(uri));
+            request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            request.Headers.Add("X-PNGEC-Admin-Key", Globals.AdminSecurityKey);
+            if (content != null)
+            {
+                request.Content = content;
+            }
+            return request;
+        }
+
         /// <summary>
         /// Gets the response.
         /// </summary>
@@ -20,22 +51,18 @@ namespace PNGEC.API.Helper
         /// <returns></returns>
         public static async Task<Response> GetResponse(string uri)
         {
-            using (var client = new HttpClient())
+            using (var request = CreateRequest(HttpMethod.Get, uri))
             {
-                client.BaseAddress = new Uri(Globals.serverURL);
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-                using (HttpResponseMessage response = await client.GetAsync(uri))
+                using (HttpResponseMessage response = await _httpClient.SendAsync(request).ConfigureAwait(false))
                 {
                     if (response.StatusCode == HttpStatusCode.OK)
                     {
-                        string responseBody = await response.Content.ReadAsStringAsync();
+                        string responseBody = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
                         return JsonConvert.DeserializeObject<Response>(responseBody);
                     }
-
                 }
             }
-            return JsonConvert.DeserializeObject<Response>(null);
+            return null;
         }
 
         /// <summary>
@@ -46,22 +73,18 @@ namespace PNGEC.API.Helper
         /// <returns></returns>
         public static async Task<List<T>> GetRequest<T>(string uri)
         {
-            using (var client = new HttpClient())
+            using (var request = CreateRequest(HttpMethod.Get, uri))
             {
-                //client.BaseAddress = new Uri(ConfigurationManager.AppSettings["apiURL"]);
-                client.BaseAddress = new Uri(Globals.serverURL);
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-                using (HttpResponseMessage response = await client.GetAsync(uri))
+                using (HttpResponseMessage response = await _httpClient.SendAsync(request).ConfigureAwait(false))
                 {
-                    if(response.StatusCode == HttpStatusCode.OK)
+                    if (response.StatusCode == HttpStatusCode.OK)
                     {
-                        string responseBody = await response.Content.ReadAsStringAsync();
+                        string responseBody = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
                         return JsonConvert.DeserializeObject<List<T>>(responseBody);
                     }
                 }
             }
-            return JsonConvert.DeserializeObject<List<T>>(null);
+            return null;
         }
 
         /// <summary>
@@ -71,23 +94,18 @@ namespace PNGEC.API.Helper
         /// <returns></returns>
         public static async Task<DataTable> GetList(string uri)
         {
-            using (var client = new HttpClient())
+            using (var request = CreateRequest(HttpMethod.Get, uri))
             {
-                //client.BaseAddress = new Uri(ConfigurationManager.AppSettings["apiURL"]);
-                client.BaseAddress = new Uri(Globals.serverURL);
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-                using (HttpResponseMessage response = await client.GetAsync(uri))
+                using (HttpResponseMessage response = await _httpClient.SendAsync(request).ConfigureAwait(false))
                 {
                     if (response.StatusCode == HttpStatusCode.OK)
                     {
-                        string responseBody = await response.Content.ReadAsStringAsync();
+                        string responseBody = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
                         return JsonConvert.DeserializeObject<DataTable>(responseBody);
                     }
-
                 }
             }
-            return JsonConvert.DeserializeObject<DataTable>(null);
+            return null;
         }
 
         /// <summary>
@@ -99,20 +117,19 @@ namespace PNGEC.API.Helper
         /// <returns></returns>
         public static async Task<Response<T>> PostRequest<T>(string uri, PageList model)
         {
-            using (var client = new HttpClient())
+            var content = new StringContent(JsonConvert.SerializeObject(model), System.Text.Encoding.UTF8, "application/json");
+            using (var request = CreateRequest(HttpMethod.Post, uri, content))
             {
-                //client.BaseAddress = new Uri(ConfigurationManager.AppSettings["apiURL"]);
-                client.BaseAddress = new Uri(Globals.serverURL);
-                using (HttpResponseMessage response = client.PostAsJsonAsync(uri, model).Result)
+                using (HttpResponseMessage response = await _httpClient.SendAsync(request).ConfigureAwait(false))
                 {
                     if (response.StatusCode == HttpStatusCode.OK)
                     {
-                        string responseBody = await response.Content.ReadAsStringAsync();
+                        string responseBody = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
                         return JsonConvert.DeserializeObject<Response<T>>(responseBody);
                     }
                 }
-                return JsonConvert.DeserializeObject<Response<T>>(null);
             }
+            return null;
         }
 
         /// <summary>
@@ -124,20 +141,19 @@ namespace PNGEC.API.Helper
         /// <returns></returns>
         public static async Task<Response<T>> PostRequest<T>(string uri, object model)
         {
-            using (var client = new HttpClient())
+            var content = new StringContent(JsonConvert.SerializeObject(model), System.Text.Encoding.UTF8, "application/json");
+            using (var request = CreateRequest(HttpMethod.Post, uri, content))
             {
-                //client.BaseAddress = new Uri(ConfigurationManager.AppSettings["apiURL"]);
-                client.BaseAddress = new Uri(Globals.serverURL);
-                using (HttpResponseMessage response = client.PostAsJsonAsync(uri, model).Result)
+                using (HttpResponseMessage response = await _httpClient.SendAsync(request).ConfigureAwait(false))
                 {
                     if (response.StatusCode == HttpStatusCode.OK)
                     {
-                        string responseBody = await response.Content.ReadAsStringAsync();
+                        string responseBody = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
                         return JsonConvert.DeserializeObject<Response<T>>(responseBody);
                     }
                 }
-                return JsonConvert.DeserializeObject<Response<T>>(null);
             }
+            return null;
         }
         
         /// <summary>
@@ -148,20 +164,19 @@ namespace PNGEC.API.Helper
         /// <returns></returns>
         public static async Task<Response> PostRequest(string uri, object model)
         {
-            using (var client = new HttpClient())
+            var content = new StringContent(JsonConvert.SerializeObject(model), System.Text.Encoding.UTF8, "application/json");
+            using (var request = CreateRequest(HttpMethod.Post, uri, content))
             {
-                //client.BaseAddress = new Uri(ConfigurationManager.AppSettings["apiURL"]);
-                client.BaseAddress = new Uri(Globals.serverURL);
-                using (HttpResponseMessage response = client.PostAsJsonAsync(uri, model).Result)
+                using (HttpResponseMessage response = await _httpClient.SendAsync(request).ConfigureAwait(false))
                 {
                     if (response.StatusCode == HttpStatusCode.OK)
                     {
-                        string responseBody = await response.Content.ReadAsStringAsync();
+                        string responseBody = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
                         return JsonConvert.DeserializeObject<Response>(responseBody);
                     }
                 }
-                return JsonConvert.DeserializeObject<Response>(null);
             }
+            return null;
         }
 
         /// <summary>
@@ -173,20 +188,19 @@ namespace PNGEC.API.Helper
         /// <returns></returns>
         public static async Task<CommonResponse<T>> PostRequestCommon<T>(string uri, object model)
         {
-            using (var client = new HttpClient())
+            var content = new StringContent(JsonConvert.SerializeObject(model), System.Text.Encoding.UTF8, "application/json");
+            using (var request = CreateRequest(HttpMethod.Post, uri, content))
             {
-                //client.BaseAddress = new Uri(ConfigurationManager.AppSettings["apiURL"]);
-                client.BaseAddress = new Uri(Globals.serverURL);
-                using (HttpResponseMessage response = client.PostAsJsonAsync(uri, model).Result)
+                using (HttpResponseMessage response = await _httpClient.SendAsync(request).ConfigureAwait(false))
                 {
                     if (response.StatusCode == HttpStatusCode.OK)
                     {
-                        string responseBody = await response.Content.ReadAsStringAsync();
+                        string responseBody = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
                         return JsonConvert.DeserializeObject<CommonResponse<T>>(responseBody);
                     }
                 }
-                return JsonConvert.DeserializeObject<CommonResponse<T>>(null);
             }
+            return null;
         }
 
         /// <summary>
@@ -196,13 +210,9 @@ namespace PNGEC.API.Helper
         /// <returns></returns>
         public static async Task<bool> DeleteRequest(string uri)
         {
-            using (var client = new HttpClient())
+            using (var request = CreateRequest(HttpMethod.Delete, uri))
             {
-                //client.BaseAddress = new Uri(ConfigurationManager.AppSettings["apiURL"]);
-                client.BaseAddress = new Uri(Globals.serverURL);
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-                using (HttpResponseMessage response = await client.DeleteAsync(uri))
+                using (HttpResponseMessage response = await _httpClient.SendAsync(request).ConfigureAwait(false))
                 {
                     if (response.StatusCode == HttpStatusCode.OK)
                     {
@@ -213,23 +223,21 @@ namespace PNGEC.API.Helper
             return false;
         }
 
-
         public static async Task<Response<T>> PostRequest<T>(string uri)
         {
-            using (var client = new HttpClient())
+            var content = new StringContent(string.Empty, System.Text.Encoding.UTF8, "application/json");
+            using (var request = CreateRequest(HttpMethod.Post, uri, content))
             {
-                client.Timeout = new TimeSpan(0, 20, 0);
-                client.BaseAddress = new Uri(Globals.serverURL);
-                using (HttpResponseMessage response = client.PostAsJsonAsync(uri, string.Empty).Result)
+                using (HttpResponseMessage response = await _httpClient.SendAsync(request).ConfigureAwait(false))
                 {
                     if (response.StatusCode == HttpStatusCode.OK)
                     {
-                        string responseBody = await response.Content.ReadAsStringAsync();
+                        string responseBody = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
                         return JsonConvert.DeserializeObject<Response<T>>(responseBody);
                     }
                 }
-                return JsonConvert.DeserializeObject<Response<T>>(null);
             }
+            return null;
         }
     }
 }

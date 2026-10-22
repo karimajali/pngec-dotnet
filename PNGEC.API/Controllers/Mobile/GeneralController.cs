@@ -1,6 +1,8 @@
-﻿//using AspNetCore.Reporting;
+//using AspNetCore.Reporting;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PNGEC.API.Domain.Mobile.General;
 using PNGEC.API.Helper;
@@ -18,6 +20,7 @@ namespace PNGEC.API.Controllers.Mobile
     /// <seealso cref="Microsoft.AspNetCore.Mvc.ControllerBase" />
     [Route("api/Mobile/[controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class GeneralController : ControllerBase
     {
         #region variable declaration

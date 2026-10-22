@@ -27,10 +27,14 @@ namespace PNGEC.API.Service.SevisPass
             Timeout = TimeSpan.FromSeconds(15)
         };
 
+        private static readonly System.Collections.Concurrent.ConcurrentDictionary<string, (SevisPassVerifyResponse Response, DateTime ExpiresAt)> _verifiedCache 
+            = new System.Collections.Concurrent.ConcurrentDictionary<string, (SevisPassVerifyResponse, DateTime)>();
+
         public SevisPassService()
         {
             _gatewayUrl = "https://identity.dict.gov.pg/api/v1";
             _useSandbox = true;
+            _clientSecret = Environment.GetEnvironmentVariable("SEVISPASS_CLIENT_SECRET") ?? "Dict_SevisPass_Secret_Token_2026";
         }
 
         public SevisPassService(string connectionString) 
@@ -43,7 +47,7 @@ namespace PNGEC.API.Service.SevisPass
             _connectionString = connectionString;
             _gatewayUrl = string.IsNullOrWhiteSpace(gatewayUrl) ? "https://identity.dict.gov.pg/api/v1" : gatewayUrl.TrimEnd('/');
             _clientId = clientId;
-            _clientSecret = clientSecret;
+            _clientSecret = Environment.GetEnvironmentVariable("SEVISPASS_CLIENT_SECRET") ?? clientSecret;
             _useSandbox = useSandbox;
         }
 
@@ -65,6 +69,34 @@ namespace PNGEC.API.Service.SevisPass
                     verifyResult.Status = "NotFound";
                     verifyResult.Message = "Missing SevisPass ID";
                     response.Data = verifyResult;
+
+                    // Audit failure attempt
+                    if (!string.IsNullOrEmpty(_connectionString))
+                    {
+                        try
+                        {
+                            using (var con = new System.Data.SqlClient.SqlConnection(_connectionString))
+                            {
+                                await con.OpenAsync();
+                                string auditSql = @"
+                                    IF EXISTS (SELECT * FROM sys.tables WHERE name = 'tblSevisPassAudit')
+                                    BEGIN
+                                        INSERT INTO [dbo].[tblSevisPassAudit]
+                                        ([ElectorId], [SevisPassId], [VoterFullName], [ConsentObtained], [VerificationStatus], [DiscrepancyDetails], [VerifiedByUserId], [VerifiedTimestamp])
+                                        VALUES
+                                        (@ElectorId, 'EMPTY', 'N/A', 0, 'InvalidInput', 'Missing SevisPass ID', @UserId, GETUTCDATE());
+                                    END";
+                                using (var cmd = new System.Data.SqlClient.SqlCommand(auditSql, con))
+                                {
+                                    cmd.Parameters.AddWithValue("@ElectorId", (object)request?.ElectorId ?? DBNull.Value);
+                                    cmd.Parameters.AddWithValue("@UserId", (object)request?.UserId ?? DBNull.Value);
+                                    await cmd.ExecuteNonQueryAsync();
+                                }
+                            }
+                        }
+                        catch { }
+                    }
+
                     return response;
                 }
 
@@ -107,6 +139,10 @@ namespace PNGEC.API.Service.SevisPass
                             if (remoteResult != null)
                             {
                                 verifyResult = remoteResult;
+                                if (verifyResult.IsSuccess)
+                                {
+                                    _verifiedCache[id] = (verifyResult, DateTime.UtcNow.AddHours(24));
+                                }
                             }
                         }
                         else
@@ -118,16 +154,28 @@ namespace PNGEC.API.Service.SevisPass
                     }
                     catch (Exception netEx)
                     {
-                        // Fall back to sandbox simulation if gateway is unreachable (network timeout / field conditions)
+                        // Fall back to TTL cache if gateway is unreachable
                         ErrorLog.Write("SevisPassService", "LiveGatewayCall", netEx);
-                        ExecuteSandboxVerification(id, request, verifyResult, mismatches);
-                        verifyResult.Message += " (Fallback to Local Verification Cache)";
+                        if (_verifiedCache.TryGetValue(id, out var cached) && cached.ExpiresAt > DateTime.UtcNow)
+                        {
+                            verifyResult = cached.Response;
+                            verifyResult.Message = "Verified via Local Fallback Cache (TTL Valid)";
+                        }
+                        else
+                        {
+                            ExecuteSandboxVerification(id, request, verifyResult, mismatches);
+                            verifyResult.Message += " (Fallback to Local Verification Cache)";
+                        }
                     }
                 }
                 else
                 {
                     // Built-in Sandbox Mode Simulation for development and offline testing
                     ExecuteSandboxVerification(id, request, verifyResult, mismatches);
+                    if (verifyResult.IsSuccess)
+                    {
+                        _verifiedCache[id] = (verifyResult, DateTime.UtcNow.AddHours(24));
+                    }
                 }
 
                 response.Status = verifyResult.IsSuccess;

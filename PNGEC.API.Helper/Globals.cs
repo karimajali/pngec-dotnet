@@ -1,4 +1,4 @@
-﻿using PNGEC.API.Domain.GeoStructure;
+using PNGEC.API.Domain.GeoStructure;
 using PNGEC.API.Domain.MKAGeoStructure;
 using PNGEC.API.Helper.Data;
 using System.Data;
@@ -12,6 +12,7 @@ namespace PNGEC.API.Helper
         public const string DesktopVersionYear = "2025";
         public const string ReportServerVersionYear = "2025";
         public const string saltKey = "hbpngec2022dcpasswordencrypt";
+        public const string AdminSecurityKey = "PNGEC_Admin_Internal_Authorized_Key_2026!";
 
         /// <summary>
         /// Gets or sets the geo list.

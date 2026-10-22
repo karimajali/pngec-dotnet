@@ -416,17 +416,27 @@ namespace PNGEC.API.Service.Voter
                     await stream.FlushAsync();
                 }
 
-                if (electorId > 0)
+                using (var con = new SqlConnection(_connectionString))
                 {
-                    using (var con = new SqlConnection(_connectionString))
+                    await con.OpenAsync();
+                    string updateColumn = imageType?.ToLowerInvariant() == "form" ? "ElectorFormImage" : "ElectorProfileImage";
+                    string sql = null;
+                    if (electorId > 0)
                     {
-                        await con.OpenAsync();
-                        string updateColumn = imageType?.ToLowerInvariant() == "form" ? "ElectorFormImage" : "ElectorProfileImage";
-                        string sql = $"UPDATE [dbo].[tblRoll] SET [{updateColumn}] = @FileName WHERE [ElectorId] = @ElectorId";
+                        sql = $"UPDATE [dbo].[tblRoll] SET [{updateColumn}] = @FileName WHERE [ElectorId] = @ElectorId";
+                    }
+                    else if (!string.IsNullOrEmpty(uploadId))
+                    {
+                        sql = $"UPDATE [dbo].[tblRoll] SET [{updateColumn}] = @FileName WHERE [UploadId] = @UploadId";
+                    }
+
+                    if (sql != null)
+                    {
                         using (var cmd = new SqlCommand(sql, con))
                         {
                             cmd.Parameters.AddWithValue("@FileName", fileName);
-                            cmd.Parameters.AddWithValue("@ElectorId", electorId);
+                            if (electorId > 0) cmd.Parameters.AddWithValue("@ElectorId", electorId);
+                            else cmd.Parameters.AddWithValue("@UploadId", uploadId);
                             await cmd.ExecuteNonQueryAsync();
                         }
                     }

@@ -39,9 +39,9 @@ AS
 BEGIN
 	SET NOCOUNT ON;
 
-	DECLARE @strSQL VARCHAR(MAX) 
-	DECLARE @SelectQuery VARCHAR(MAX)
-	DECLARE @Database VARCHAR(100)
+	DECLARE @strSQL NVARCHAR(MAX) 
+	DECLARE @SelectQuery NVARCHAR(MAX)
+	DECLARE @Database NVARCHAR(100)
 
 	SET @Database = CASE
 		WHEN @DatabaseName = 'Staging' THEN 'pngec-staging'
@@ -50,7 +50,7 @@ BEGIN
 		ELSE 'pngec-staging'
 	END
 
-	DECLARE @RecordType VARCHAR(1000);
+	DECLARE @RecordType NVARCHAR(1000);
 
 	IF @DatabaseName = 'Staging' OR @DatabaseName = 'Preliminary'
 		BEGIN
@@ -65,10 +65,10 @@ BEGIN
 	ELSE
 		SET @RecordType = ''
 		
-	DECLARE @Condition VARCHAR(500);
+	DECLARE @Condition NVARCHAR(500);
 	SET @Condition = (SELECT dbo.GetUserAssignGeoArea(@LoggedUserId, @GeoName, @GeoId))
 
-	DECLARE @SubCondition VARCHAR(MAX);
+	DECLARE @SubCondition NVARCHAR(MAX);
 	IF (@FiledValue = 'TRANSFER OUT with FORM 11')
 	BEGIN
 		IF @Condition <> ''
@@ -105,36 +105,39 @@ BEGIN
 	END
 	ELSE IF (@FiledValue <> 'ALL' AND @FiledValue <> 'WARD ROLL' AND @FiledValue <> 'MKA WARD ROLL' AND @FiledValue <> 'DELETED')
 		BEGIN
-			IF @Condition <> ''
-				BEGIN
-					SET @SubCondition = CASE
-						WHEN @FiledName = 'Status' THEN ' AND Roll.[' + @FiledName + '] = ''' + @FiledValue + ''''
-						WHEN @FiledName = 'SevisPass' THEN ' AND Roll.[SevisPassStatus] = ''' + @FiledValue + ''''
-						ELSE ''
-					END
-				END
+			-- Whitelist allowed search field names to prevent column identifier injection
+			IF @FiledName = 'Status'
+			BEGIN
+				IF @Condition <> ''
+					SET @SubCondition = ' AND Roll.[Status] = @pFiledValue'
+				ELSE
+					SET @SubCondition = ' Roll.[Status] = @pFiledValue'
+			END
+			ELSE IF @FiledName = 'SevisPass'
+			BEGIN
+				IF @Condition <> ''
+					SET @SubCondition = ' AND Roll.[SevisPassStatus] = @pFiledValue'
+				ELSE
+					SET @SubCondition = ' Roll.[SevisPassStatus] = @pFiledValue'
+			END
 			ELSE
-				BEGIN
-					SET @SubCondition = CASE
-						WHEN @FiledName = 'Status' THEN ' Roll.[' + @FiledName + '] = ''' + @FiledValue + ''''
-						WHEN @FiledName = 'SevisPass' THEN ' Roll.[SevisPassStatus] = ''' + @FiledValue + ''''
-						ELSE ''
-					END
-				END
+			BEGIN
+				SET @SubCondition = ''
+			END
 		END
 	ELSE IF (@FiledValue = 'WARD ROLL' OR @FiledValue = 'MKA WARD ROLL')
 		BEGIN
 			IF @Condition <> ''
 				BEGIN
 					SET @SubCondition = CASE
-						WHEN @FiledName = 'Status' THEN ' AND (Roll.[' + @FiledName + '] = ''' + 'OLD' + ''' OR Roll.[' + @FiledName + '] = ''' + 'NEW' + ''' OR Roll.[' + @FiledName + '] = ''' + 'UPDATED' + ''' OR Roll.[' + @FiledName + '] = ''' + 'TRANSFERRED IN' + ''')'
+						WHEN @FiledName = 'Status' THEN ' AND (Roll.[Status] = ''OLD'' OR Roll.[Status] = ''NEW'' OR Roll.[Status] = ''UPDATED'' OR Roll.[Status] = ''TRANSFERRED IN'')'
 						ELSE ''
 					END
 				END
 			ELSE
 				BEGIN
 					SET @SubCondition = CASE
-						WHEN @FiledName = 'Status' THEN ' (Roll.[' + @FiledName + '] = ''' + 'OLD' + ''' OR Roll.[' + @FiledName + '] = ''' + 'NEW' + ''' OR Roll.[' + @FiledName + '] = ''' + 'UPDATED' + ''' OR Roll.[' + @FiledName + '] = ''' + 'TRANSFERRED IN' + ''')'
+						WHEN @FiledName = 'Status' THEN ' (Roll.[Status] = ''OLD'' OR Roll.[Status] = ''NEW'' OR Roll.[Status] = ''UPDATED'' OR Roll.[Status] = ''TRANSFERRED IN'')'
 						ELSE ''
 					END
 				END
@@ -144,14 +147,14 @@ BEGIN
 			IF @Condition <> ''
 				BEGIN
 					SET @SubCondition = CASE
-						WHEN @FiledName = 'Status' THEN ' AND (Roll.[' + @FiledName + '] = ''' + 'TRANSFERRED OUT' + ''' OR Roll.[' + @FiledName + '] = ''' + 'GHOST' + ''' OR Roll.[' + @FiledName + '] = ''' + 'DELETED' + ''' OR Roll.[' + @FiledName + '] = ''' + 'DUPLICATE' + ''' OR Roll.[' + @FiledName + '] = ''' + 'DECEASED' + ''' OR Roll.[' + @FiledName + '] = ''' + 'UNDER AGE' + ''')'
+						WHEN @FiledName = 'Status' THEN ' AND (Roll.[Status] = ''TRANSFERRED OUT'' OR Roll.[Status] = ''GHOST'' OR Roll.[Status] = ''DELETED'' OR Roll.[Status] = ''DUPLICATE'' OR Roll.[Status] = ''DECEASED'' OR Roll.[Status] = ''UNDER AGE'')'
 						ELSE ''
 					END
 				END
 			ELSE
 				BEGIN
 					SET @SubCondition = CASE
-						WHEN @FiledName = 'Status' THEN ' (Roll.[' + @FiledName + '] = ''' + 'TRANSFERRED OUT' + ''' OR Roll.[' + @FiledName + '] = ''' + 'GHOST' + ''' OR Roll.[' + @FiledName + '] = ''' + 'DELETED' + ''' OR Roll.[' + @FiledName + '] = ''' + 'DUPLICATE' + ''' OR Roll.[' + @FiledName + '] = ''' + 'DECEASED' + ''' OR Roll.[' + @FiledName + '] = ''' + 'UNDER AGE' + ''')'
+						WHEN @FiledName = 'Status' THEN ' (Roll.[Status] = ''TRANSFERRED OUT'' OR Roll.[Status] = ''GHOST'' OR Roll.[Status] = ''DELETED'' OR Roll.[Status] = ''DUPLICATE'' OR Roll.[Status] = ''DECEASED'' OR Roll.[Status] = ''UNDER AGE'')'
 						ELSE ''
 					END
 				END
@@ -162,26 +165,40 @@ BEGIN
 		END
 
 	DECLARE @GenderCondition VARCHAR(500);
-	SET @GenderCondition = CASE
-		WHEN @Gender = 'M' THEN ' AND Roll.[Gender] = ''' + @Gender + ''''
-		WHEN @Gender = 'F' THEN ' AND Roll.[Gender] = ''' + @Gender + ''''
-		WHEN @Gender = 'O' THEN ' AND (ISNULL(Roll.Gender,'''') <> ''M'' AND ISNULL(Roll.Gender,'''') <> ''F'')'
-		ELSE ''
+	IF @Gender = 'M' OR @Gender = 'F'
+	BEGIN
+		SET @GenderCondition = ' AND Roll.[Gender] = @pGender'
+	END
+	ELSE IF @Gender = 'O'
+	BEGIN
+		SET @GenderCondition = ' AND (ISNULL(Roll.Gender,'''') <> ''M'' AND ISNULL(Roll.Gender,'''') <> ''F'')'
+	END
+	ELSE
+	BEGIN
+		SET @GenderCondition = ''
 	END
 
 	DECLARE @ClanCondition VARCHAR(500);
-	SET @ClanCondition = CASE
-		WHEN @ClanId > 0 THEN ' AND Roll.[MKAClanId] = ' + CAST(@ClanId as VARCHAR(9)) +  ''
-		ELSE ''
+	IF @ClanId > 0
+	BEGIN
+		SET @ClanCondition = ' AND Roll.[MKAClanId] = @pClanId'
+	END
+	ELSE
+	BEGIN
+		SET @ClanCondition = ''
 	END
 
-	DECLARE @GeoClanCondition VARCHAR(500);
-	SET @GeoClanCondition = CASE
-		WHEN @GeoClanId > 0 THEN ' AND Roll.[ClanId] = ' + CAST(@GeoClanId as VARCHAR(9)) +  ''
-		ELSE ''
+	DECLARE @GeoClanCondition NVARCHAR(500);
+	IF @GeoClanId > 0
+	BEGIN
+		SET @GeoClanCondition = ' AND Roll.[ClanId] = @pGeoClanId'
+	END
+	ELSE
+	BEGIN
+		SET @GeoClanCondition = ''
 	END
 
-	DECLARE @ApprovalCondition VARCHAR(500);
+	DECLARE @ApprovalCondition NVARCHAR(500);
 	SET @ApprovalCondition = CASE
 		WHEN @ApprovalStatus = 'APPROVED' THEN ' AND (ISNULL([IsApproved], 0) = 1 AND ISNULL([IsRejected], 0) = 0 AND ISNULL([IsRejectedByRD], 0) = 0)'
 		WHEN @ApprovalStatus = 'REJECTED' THEN ' AND (ISNULL([IsApproved], 0) = 0 AND ISNULL([IsRejected], 0) = 1 AND ISNULL([IsRejectedByRD], 0) = 0)'
@@ -189,7 +206,7 @@ BEGIN
 		ELSE ''
 	END
 
-	DECLARE @GeoClanConditionSelectFirst VARCHAR(500);
+	DECLARE @GeoClanConditionSelectFirst NVARCHAR(500);
 	SET @GeoClanConditionSelectFirst = ' SELECT '
 
 	SET @SelectQuery = @GeoClanConditionSelectFirst
@@ -307,38 +324,59 @@ BEGIN
 						LEFT JOIN [geo].[tblClan] AS CL WITH(NOLOCK) ON CL.[ClanId] = Roll.[ClanId]
 						WHERE ' + @Condition + @SubCondition + @GenderCondition + @ApprovalCondition + @ClanCondition +  @GeoClanCondition
 
+	-- Parameterized safe LIKE filters (prevent SQL injection)
 	IF @KeyWord IS NOT NULL AND @KeyWord <> ''
 	BEGIN
-		SET @SelectQuery = @SelectQuery + ' AND (Roll.[FName] LIKE ''' + @KeyWord + '%''OR ' + 
-				'Roll.[LName] LIKE ''' + @KeyWord + '%''OR ' + 
-				CONCAT('Roll.[LName]', ' + ', ''' ''', ' + ', 'Roll.[FName]') + ' LIKE ''' + @KeyWord + '%'')'
+		SET @SelectQuery = @SelectQuery + ' AND (Roll.[FName] LIKE @pKeyWord + ''%'' OR Roll.[LName] LIKE @pKeyWord + ''%'' OR (Roll.[LName] + '' '' + Roll.[FName]) LIKE @pKeyWord + ''%'')'
 	END
 
 	IF (@FName IS NOT NULL AND @FName <> '') AND (@LName IS NOT NULL AND @LName <> '')
-		BEGIN
-			SET @SelectQuery = @SelectQuery + ' AND (Roll.[FName] LIKE ''' + @FName + '%''AND ' + 'Roll.[LName] LIKE ''' + @LName + '%'')'
-		END
+	BEGIN
+		SET @SelectQuery = @SelectQuery + ' AND (Roll.[FName] LIKE @pFName + ''%'' AND Roll.[LName] LIKE @pLName + ''%'')'
+	END
 	ELSE IF @FName IS NOT NULL AND @FName <> ''
-		BEGIN
-			SET @SelectQuery = @SelectQuery + ' AND (Roll.[FName] LIKE ''' + @FName + '%'')'
-		END
+	BEGIN
+		SET @SelectQuery = @SelectQuery + ' AND (Roll.[FName] LIKE @pFName + ''%'')'
+	END
 	ELSE IF @LName IS NOT NULL AND @LName <> ''
-		BEGIN
-			SET @SelectQuery = @SelectQuery + ' AND (Roll.[LName] LIKE ''' + @LName + '%'')'
-		END
+	BEGIN
+		SET @SelectQuery = @SelectQuery + ' AND (Roll.[LName] LIKE @pLName + ''%'')'
+	END
 	
 	SET @strSQL  =	'SELECT * FROM (' + @SelectQuery + ') Result'
+	
+	DECLARE @MinRow INT = (@PageNo - 1) * @PageSize;
+	DECLARE @MaxRow INT = @PageNo * @PageSize + 1;
 						
 	IF (@PageSize > 0)
 	BEGIN
-		SET @strSQL  =	@strSQL  + ' WHERE [Result].[RowNo] > ' + CAST((@PageNo-1)* @PageSize AS VARCHAR(10)) + '
-									 AND [Result].[RowNo] < ' + CAST(@PageNo * @PageSize + 1 AS VARCHAR(10))
+		SET @strSQL  =	@strSQL  + ' WHERE [Result].[RowNo] > @pMinRow AND [Result].[RowNo] < @pMaxRow'
 	END
 
-	EXEC(@strSQL)	
+	DECLARE @ParamDef NVARCHAR(MAX) = N'@pKeyWord VARCHAR(100), @pFName VARCHAR(100), @pLName VARCHAR(100), @pGender VARCHAR(100), @pClanId INT, @pGeoClanId INT, @pFiledValue VARCHAR(100), @pMinRow INT, @pMaxRow INT';
+
+	EXEC sp_executesql @strSQL, @ParamDef,
+		@pKeyWord = @KeyWord,
+		@pFName = @FName,
+		@pLName = @LName,
+		@pGender = @Gender,
+		@pClanId = @ClanId,
+		@pGeoClanId = @GeoClanId,
+		@pFiledValue = @FiledValue,
+		@pMinRow = @MinRow,
+		@pMaxRow = @MaxRow;
 	
-	SET @strSQL  =	'	SELECT COUNT(1) AS TotalRecordCount FROM (' + @SelectQuery + ') Result'
+	SET @strSQL  =	'SELECT COUNT(1) AS TotalRecordCount FROM (' + @SelectQuery + ') Result'
 	
-	EXEC(@strSQL)	
+	EXEC sp_executesql @strSQL, @ParamDef,
+		@pKeyWord = @KeyWord,
+		@pFName = @FName,
+		@pLName = @LName,
+		@pGender = @Gender,
+		@pClanId = @ClanId,
+		@pGeoClanId = @GeoClanId,
+		@pFiledValue = @FiledValue,
+		@pMinRow = @MinRow,
+		@pMaxRow = @MaxRow;
 END
 GO

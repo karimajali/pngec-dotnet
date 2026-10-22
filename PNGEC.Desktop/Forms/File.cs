@@ -2309,7 +2309,8 @@ namespace PNGEC.Desktop.Forms
         /// </summary>
         private void SatusComboboxBind()
         {
-            if (Convert.ToString(cmbFiled.SelectedValue) == "SevisPass")
+            string selectedField = cmbFiled.SelectedItem != null ? cmbFiled.SelectedItem.ToString() : (Convert.ToString(cmbFiled.SelectedValue) ?? cmbFiled.Text);
+            if (selectedField == "SevisPass")
             {
                 cmbStatus.DataSource = SevisPassStatusArray;
                 return;
@@ -2578,8 +2579,10 @@ namespace PNGEC.Desktop.Forms
                 pageList.SortOrder = "DESC";
 
                 // Filter Filed
-                pageList.FiledName = Convert.ToString(cmbFiled.SelectedValue);
-                pageList.FiledValue = Convert.ToString(cmbStatus.SelectedValue);
+                string fName = cmbFiled.SelectedItem != null ? cmbFiled.SelectedItem.ToString() : (Convert.ToString(cmbFiled.SelectedValue) ?? cmbFiled.Text);
+                string fVal = cmbStatus.SelectedItem != null ? cmbStatus.SelectedItem.ToString() : (Convert.ToString(cmbStatus.SelectedValue) ?? cmbStatus.Text);
+                pageList.FiledName = fName;
+                pageList.FiledValue = fVal;
 
                 // TreeView Filed
                 pageList.GeoName = TreeStructure.MainTagName;
@@ -3313,7 +3316,10 @@ namespace PNGEC.Desktop.Forms
                             {
                                 if (GlobalsModel.TreeViewStructure.MainTagName == "Ward" || GlobalsModel.TreeViewStructure.MainTagName == "Location")
                                 {
-                                    var clanData = Globals.GeoList.ClanList.Where(d => d.WardId == GlobalsModel.TreeViewStructure.Id).ToList();
+                                    int targetWardId = GlobalsModel.TreeViewStructure.MainTagName == "Ward" ? GlobalsModel.TreeViewStructure.Id : GlobalsModel.TreeViewStructure.ParentId;
+                                    var clanData = (Globals.GeoList != null && Globals.GeoList.ClanList != null)
+                                        ? Globals.GeoList.ClanList.Where(d => d.WardId == targetWardId).ToList()
+                                        : new List<ClanModel>();
                                     ClanModel cmAll = new ClanModel();
                                     cmAll.ClanId = 0;
                                     cmAll.ClanName = "ALL";
@@ -3342,7 +3348,10 @@ namespace PNGEC.Desktop.Forms
                 {
                     if (GlobalsModel.LoggedUser.User.Role == (int)CommonEnum.Role.SelectRole || GlobalsModel.LoggedUser.User.Role == (int)CommonEnum.Role.Admin || GlobalsModel.LoggedUser.User.Role == (int)CommonEnum.Role.Management)
                     {
-                        var clanData = Globals.GeoList.ClanList.Where(d => d.WardId == GlobalsModel.TreeViewStructure.Id).ToList();
+                        int targetWardId = GlobalsModel.TreeViewStructure.MainTagName == "Ward" ? GlobalsModel.TreeViewStructure.Id : GlobalsModel.TreeViewStructure.ParentId;
+                        var clanData = (Globals.GeoList != null && Globals.GeoList.ClanList != null)
+                            ? Globals.GeoList.ClanList.Where(d => d.WardId == targetWardId).ToList()
+                            : new List<ClanModel>();
                         ClanModel cmAll = new ClanModel();
                         cmAll.ClanId = 0;
                         cmAll.ClanName = "ALL";
@@ -4021,7 +4030,9 @@ namespace PNGEC.Desktop.Forms
                         wardId = TreeStructure.ParentId;
                     }
 
-                    var clans = Globals.GeoList.ClanList.Where(c => c.WardId == wardId).Select(x => x.ClanName).OrderBy(name => name).ToList();
+                    var clans = (Globals.GeoList != null && Globals.GeoList.ClanList != null)
+                        ? Globals.GeoList.ClanList.Where(c => c.WardId == wardId).Select(x => x.ClanName).OrderBy(name => name).ToList()
+                        : new List<string>();
 
                     ClanName = string.Join(", ", clans);
                 }

@@ -4,6 +4,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -25,11 +26,13 @@ namespace PNGEC.API.Controllers.Mobile
     {
         private readonly IUserService _userService;
         private readonly IConfiguration _configuration;
+        private readonly Microsoft.AspNetCore.Hosting.IHostingEnvironment _env;
 
-        public AuthController(IUserService userService, IConfiguration configuration)
+        public AuthController(IUserService userService, IConfiguration configuration, Microsoft.AspNetCore.Hosting.IHostingEnvironment env)
         {
             _userService = userService;
             _configuration = configuration;
+            _env = env;
         }
 
         /// <summary>
@@ -80,12 +83,17 @@ namespace PNGEC.API.Controllers.Mobile
         }
 
         /// <summary>
-        /// Generates a test token for automated testing and field verification.
+        /// Generates a test token for automated testing and field verification (Development Only).
         /// </summary>
         [HttpPost("DevToken")]
         [AllowAnonymous]
         public IActionResult GenerateDevToken([FromBody] DevTokenRequest request)
         {
+            if (!string.Equals(_env.EnvironmentName, "Development", StringComparison.OrdinalIgnoreCase))
+            {
+                return StatusCode(403, new Response { Status = false, Message = "DevToken endpoint is strictly disabled in production environments." });
+            }
+
             string userName = string.IsNullOrWhiteSpace(request?.UserName) ? "dev_tester" : request.UserName;
             string role = string.IsNullOrWhiteSpace(request?.Role) ? "Admin" : request.Role;
             string userId = string.IsNullOrWhiteSpace(request?.UserId) ? "1" : request.UserId;
@@ -133,7 +141,9 @@ namespace PNGEC.API.Controllers.Mobile
 
         private string CreateJwtToken(string userId, string userName, string role, int expiryDays)
         {
-            string secretKey = _configuration["JwtSettings:SecretKey"] ?? "PNGEC_Electoral_Roll_Secured_Key_2026_Dict_Portal_Key_1289!";
+            string secretKey = Environment.GetEnvironmentVariable("PNGEC_JWT_SECRET")
+                ?? _configuration["JwtSettings:SecretKey"]
+                ?? "PNGEC_Electoral_Roll_Secured_Key_2026_Dict_Portal_Key_1289!";
             string issuer = _configuration["JwtSettings:Issuer"] ?? "PNGEC_API";
             string audience = _configuration["JwtSettings:Audience"] ?? "PNGEC_Clients";
 

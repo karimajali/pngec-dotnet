@@ -108,6 +108,13 @@ BEGIN
     SET NOCOUNT ON;
     SET XACT_ABORT ON;
 
+    -- A. Idempotency Check
+    IF EXISTS (SELECT 1 FROM dbo.tblSyncLog WHERE UploadId = @UploadId AND Status = 'SUCCESS')
+    BEGIN
+        SELECT 1 AS IsSuccess, @ElectorId AS ElectorId, 'ALREADY_PROCESSED' AS Message;
+        RETURN;
+    END
+
     BEGIN TRY
         BEGIN TRANSACTION;
 
@@ -164,6 +171,13 @@ BEGIN
     SET NOCOUNT ON;
     SET XACT_ABORT ON;
 
+    -- A. Idempotency Check
+    IF EXISTS (SELECT 1 FROM dbo.tblSyncLog WHERE UploadId = @UploadId AND Status = 'SUCCESS')
+    BEGIN
+        SELECT 1 AS IsSuccess, @ElectorId AS ElectorId, 'ALREADY_PROCESSED' AS Message;
+        RETURN;
+    END
+
     BEGIN TRY
         BEGIN TRANSACTION;
 
@@ -214,6 +228,13 @@ AS
 BEGIN
     SET NOCOUNT ON;
     SET XACT_ABORT ON;
+
+    -- A. Idempotency Check
+    IF EXISTS (SELECT 1 FROM dbo.tblSyncLog WHERE UploadId = @UploadId AND Status = 'SUCCESS')
+    BEGIN
+        SELECT 1 AS IsSuccess, @ElectorId AS ElectorId, 'ALREADY_PROCESSED' AS Message;
+        RETURN;
+    END
 
     BEGIN TRY
         BEGIN TRANSACTION;

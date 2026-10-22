@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PNGEC.API.Domain.Mobile.Voter;
 using PNGEC.API.Helper;
@@ -9,11 +11,12 @@ namespace PNGEC.API.Controllers
 {
     [Route("api/mobile/[controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class VoterController : Controller
     {
         #region variable declaration
         /// <summary>
-        /// The i water service
+        /// The voter service
         /// </summary>
         private IVoterService iVoterService;
         #endregion
@@ -22,7 +25,7 @@ namespace PNGEC.API.Controllers
         /// <summary>
         /// Initializes a new instance of the <see cref="VoterController"/> class.
         /// </summary>
-        /// <param name="waterService">The water service.</param>
+        /// <param name="voterService">The voter service.</param>
         public VoterController(IVoterService voterService)
         {
             iVoterService = voterService;

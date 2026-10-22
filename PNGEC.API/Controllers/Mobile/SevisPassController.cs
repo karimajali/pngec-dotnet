@@ -14,6 +14,7 @@ namespace PNGEC.API.Controllers.Mobile
     /// </summary>
     [Route("api/mobile/v2/[controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class SevisPassController : Controller
     {
         private readonly ISevisPassService _sevisPassService;

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -56,9 +56,9 @@ namespace PNGEC.Desktop
         /// </summary>
         private string menuName = string.Empty;
         /// <summary>
-        /// The beard cum name
+        /// The bread crumb name
         /// </summary>
-        private string beardCumName = string.Empty;
+        private string breadCrumbName = string.Empty;
 
         protected StatusBarPanel statusPanel = new StatusBarPanel();
         #endregion
@@ -309,7 +309,7 @@ namespace PNGEC.Desktop
             mdiChildFile.Dock = DockStyle.Fill;
             mdiChildFile.AutoScroll = true;
             menuName = "PNGECFile";
-            beardCumName = tvGeoStructure.SelectedNode.FullPath.Replace("\\", " / ");
+            breadCrumbName = tvGeoStructure.SelectedNode.FullPath.Replace("\\", " / ");
             ManageBreadcums();
             this.SelectedMenuColorChange(this.menuFile);
             mdiChildFile.Show();
@@ -342,7 +342,7 @@ namespace PNGEC.Desktop
             mdiChildFile.Dock = DockStyle.Fill;
             mdiChildFile.AutoScroll = true;
             menuName = "MKAFile";
-            beardCumName = tvMKAGeoStructure.SelectedNode.FullPath.Replace("\\", " / ");
+            breadCrumbName = tvMKAGeoStructure.SelectedNode.FullPath.Replace("\\", " / ");
             ManageBreadcums();
             this.SelectedMenuColorChange(this.mkaToolStripMenuItem);
             mdiChildFile.Show();
@@ -453,7 +453,7 @@ namespace PNGEC.Desktop
             mdiChildFile.Dock = DockStyle.Fill;
             mdiChildFile.AutoScroll = true;
             menuName = "Report => " + sender.ToString();
-            beardCumName = tvGeoStructure.SelectedNode.FullPath.Replace("\\", " / ");
+            breadCrumbName = tvGeoStructure.SelectedNode.FullPath.Replace("\\", " / ");
             ManageBreadcums();
             UpdateReportName();
             this.SelectedMenuColorChange(this.menuReport);
@@ -484,7 +484,7 @@ namespace PNGEC.Desktop
             mdiChildFile.Dock = DockStyle.Fill;
             mdiChildFile.AutoScroll = true;
             menuName = "MKA => Data => " + sender.ToString();
-            beardCumName = tvMKAGeoStructure.SelectedNode.FullPath.Replace("\\", " / ");
+            breadCrumbName = tvMKAGeoStructure.SelectedNode.FullPath.Replace("\\", " / ");
             ManageBreadcums();
             UpdateReportName();
             this.SelectedMenuColorChange(this.mkaToolStripMenuItem);
@@ -585,7 +585,7 @@ namespace PNGEC.Desktop
             mdiChildUser.Dock = DockStyle.Fill;
             mdiChildUser.AutoScroll = true;
             menuName = "Admin => " + sender.ToString();
-            beardCumName = tvGeoStructure.SelectedNode.FullPath.Replace("\\", " / ");
+            breadCrumbName = tvGeoStructure.SelectedNode.FullPath.Replace("\\", " / ");
             ManageBreadcums();
             this.SelectedMenuColorChange(this.menuAdmin);
             mdiChildUser.Show();
@@ -610,7 +610,7 @@ namespace PNGEC.Desktop
             mdiChildUser.Dock = DockStyle.Fill;
             mdiChildUser.AutoScroll = true;
             menuName = "MKA => Data => " + sender.ToString();
-            beardCumName = tvMKAGeoStructure.SelectedNode.FullPath.Replace("\\", " / ");
+            breadCrumbName = tvMKAGeoStructure.SelectedNode.FullPath.Replace("\\", " / ");
             ManageBreadcums();
             this.SelectedMenuColorChange(this.mkaToolStripMenuItem);
             mdiChildUser.Show();
@@ -666,7 +666,7 @@ namespace PNGEC.Desktop
             mdiChildUser.Dock = DockStyle.Fill;
             mdiChildUser.AutoScroll = true;
             menuName = "Report => " + sender.ToString();
-            beardCumName = tvGeoStructure.SelectedNode.FullPath.Replace("\\", " / ");
+            breadCrumbName = tvGeoStructure.SelectedNode.FullPath.Replace("\\", " / ");
             ManageBreadcums();
             this.SelectedMenuColorChange(this.menuReport);
             mdiChildUser.Show();
@@ -696,7 +696,7 @@ namespace PNGEC.Desktop
             mdiChildUser.Dock = DockStyle.Fill;
             mdiChildUser.AutoScroll = true;
             menuName = "MKA => Data => " + sender.ToString();
-            beardCumName = tvMKAGeoStructure.SelectedNode.FullPath.Replace("\\", " / ");
+            breadCrumbName = tvMKAGeoStructure.SelectedNode.FullPath.Replace("\\", " / ");
             ManageBreadcums();
             this.SelectedMenuColorChange(this.mkaToolStripMenuItem);
             mdiChildUser.Show();
@@ -726,7 +726,7 @@ namespace PNGEC.Desktop
             mdiChildUser.Dock = DockStyle.Fill;
             mdiChildUser.AutoScroll = true;
             menuName = "MKA => Report => " + sender.ToString();
-            beardCumName = tvMKAGeoStructure.SelectedNode.FullPath.Replace("\\", " / ");
+            breadCrumbName = tvMKAGeoStructure.SelectedNode.FullPath.Replace("\\", " / ");
             ManageBreadcums();
             this.SelectedMenuColorChange(this.mkaToolStripMenuItem);
             mdiChildUser.Show();
@@ -836,7 +836,7 @@ namespace PNGEC.Desktop
                 mdiChildFieldTallySummarySheet.Dock = DockStyle.Fill;
                 mdiChildFieldTallySummarySheet.AutoScroll = true;
                 menuName = "Report => " + sender.ToString();
-                beardCumName = tvGeoStructure.SelectedNode.FullPath.Replace("\\", " / ");
+                breadCrumbName = tvGeoStructure.SelectedNode.FullPath.Replace("\\", " / ");
                 ManageBreadcums();
                 this.SelectedMenuColorChange(this.menuReport);
                 mdiChildFieldTallySummarySheet.Show();
@@ -873,7 +873,7 @@ namespace PNGEC.Desktop
                 mdiChildFieldTallySummarySheet.Dock = DockStyle.Fill;
                 mdiChildFieldTallySummarySheet.AutoScroll = true;
                 menuName = "MKA => Report => " + sender.ToString();
-                beardCumName = tvMKAGeoStructure.SelectedNode.FullPath.Replace("\\", " / ");
+                breadCrumbName = tvMKAGeoStructure.SelectedNode.FullPath.Replace("\\", " / ");
                 ManageBreadcums();
                 this.SelectedMenuColorChange(this.mkaToolStripMenuItem);
                 mdiChildFieldTallySummarySheet.Show();
@@ -951,9 +951,9 @@ namespace PNGEC.Desktop
 
 
             // ManageBreadcums(e.Node.FullPath);
-            beardCumName = e.Node.FullPath.Replace("\\", " / ");
+            breadCrumbName = e.Node.FullPath.Replace("\\", " / ");
 
-            string reportName = beardCumName.Replace(" / ", "_").Replace("PNGEC_", string.Empty);
+            string reportName = breadCrumbName.Replace(" / ", "_").Replace("PNGEC_", string.Empty);
 
             if (GlobalsModel.TreeViewStructure.MainTagName == "Ward")
             {
@@ -990,9 +990,9 @@ namespace PNGEC.Desktop
         {
             GlobalsModel.MKATreeViewStructure = (MKAGeoTreeStructure)e.Node.Tag;
             // ManageBreadcums(e.Node.FullPath);
-            beardCumName = e.Node.FullPath.Replace("\\", " / ");
+            breadCrumbName = e.Node.FullPath.Replace("\\", " / ");
 
-            string reportName = beardCumName.Replace(" / ", "_").Replace("MKA_", string.Empty);
+            string reportName = breadCrumbName.Replace(" / ", "_").Replace("MKA_", string.Empty);
 
             if (GlobalsModel.MKATreeViewStructure.MainTagName == "MKAWard")
             {
@@ -3073,7 +3073,7 @@ namespace PNGEC.Desktop
         /// </summary>
         private void ManageBreadcums()
         {
-            lblTopMessage.Text = menuName + " : " + beardCumName;
+            lblTopMessage.Text = menuName + " : " + breadCrumbName;
         }
 
         /// <summary>
@@ -3124,7 +3124,7 @@ namespace PNGEC.Desktop
         /// </summary>
         private void UpdateReportName()
         {
-            string reportName = beardCumName.Replace(" / ", "_").Replace("MKA_", string.Empty);
+            string reportName = breadCrumbName.Replace(" / ", "_").Replace("MKA_", string.Empty);
 
             if (GlobalsModel.MKATreeViewStructure.MainTagName == "MKAWard")
             {
@@ -3169,7 +3169,7 @@ namespace PNGEC.Desktop
             mdiChildUser.Dock = DockStyle.Fill;
             mdiChildUser.AutoScroll = true;
             menuName = "Admin => " + sender.ToString();
-            beardCumName = tvGeoStructure.SelectedNode.FullPath.Replace("\\", " / ");
+            breadCrumbName = tvGeoStructure.SelectedNode.FullPath.Replace("\\", " / ");
             ManageBreadcums();
             this.SelectedMenuColorChange(this.menuAdmin);
             mdiChildUser.Show();
