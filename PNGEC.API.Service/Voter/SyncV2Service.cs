@@ -551,9 +551,12 @@ namespace PNGEC.API.Service.Voter
             cmd.Parameters.AddWithValue("@TempElectorId", (object)voter.TempElectorId ?? DBNull.Value);
             cmd.Parameters.AddWithValue("@isYOB", (object)voter.isYOB ?? DBNull.Value);
             cmd.Parameters.AddWithValue("@isPWD", (object)voter.isPWD ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@dpo", (object)voter.dpo ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@ElectorProfileImage", (object)voter.ElectorProfileImage ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@ElectorFormImage", (object)voter.ElectorFormImage ?? DBNull.Value);
+            string profImg = voter.ElectorProfileImage;
+            if (!string.IsNullOrEmpty(profImg) && (profImg.Contains("/") || profImg.Contains("\\"))) profImg = null;
+            string formImg = voter.ElectorFormImage;
+            if (!string.IsNullOrEmpty(formImg) && (formImg.Contains("/") || formImg.Contains("\\"))) formImg = null;
+            cmd.Parameters.AddWithValue("@ElectorProfileImage", (object)profImg ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@ElectorFormImage", (object)formImg ?? DBNull.Value);
             cmd.Parameters.AddWithValue("@MKALocationId", (object)voter.MKALocationId ?? DBNull.Value);
             cmd.Parameters.AddWithValue("@MKAWardId", (object)voter.MKAWardId ?? DBNull.Value);
             cmd.Parameters.AddWithValue("@MKALLGId", (object)voter.MKALLGId ?? DBNull.Value);

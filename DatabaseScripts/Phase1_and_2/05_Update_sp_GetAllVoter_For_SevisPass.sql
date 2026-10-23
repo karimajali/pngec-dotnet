@@ -282,6 +282,7 @@ BEGIN
 							Roll.[TransferOutWardId],
 							Roll.[TransferOutLocationId],
 							Roll.[Religion],
+							ISNULL(Roll.[UploadId], '''') AS UploadId,
 							ISNULL(Roll.[SevisPassId], '''') AS SevisPassId,
 							ISNULL(Roll.[SevisPassStatus], '''') AS SevisPassStatus,
 							Roll.[SevisPassVerifiedDate],
