@@ -169,6 +169,7 @@ namespace PNGEC.API.Service.Voter
                                 cmd.Parameters.AddWithValue("@DeviceId", (object)request.DeviceId ?? DBNull.Value);
                                 cmd.Parameters.AddWithValue("@SevisPassId", (object)voter.SevisPassId ?? DBNull.Value);
                                 cmd.Parameters.AddWithValue("@SevisPassStatus", (object)voter.SevisPassStatus ?? DBNull.Value);
+                                AddVoterDemographicParameters(cmd, voter);
 
                                 using (var reader = await cmd.ExecuteReaderAsync())
                                 {
@@ -194,19 +195,23 @@ namespace PNGEC.API.Service.Voter
 
                             if (recResult.IsSuccess && recResult.ElectorId == 0)
                             {
-                                await Task.Delay(250);
-                                using (var checkCmd = new SqlCommand("SELECT TOP 1 ElectorId, RecordNo, Status FROM dbo.tblSyncLog WHERE UploadId = @UpId", con))
+                                for (int retry = 0; retry < 5; retry++)
                                 {
-                                    checkCmd.Parameters.AddWithValue("@UpId", voter.UploadId);
-                                    using (var checkReader = await checkCmd.ExecuteReaderAsync())
+                                    await Task.Delay(200);
+                                    using (var checkCmd = new SqlCommand("SELECT TOP 1 ElectorId, RecordNo, Status FROM dbo.tblSyncLog WHERE UploadId = @UpId", con))
                                     {
-                                        if (await checkReader.ReadAsync())
+                                        checkCmd.Parameters.AddWithValue("@UpId", voter.UploadId);
+                                        using (var checkReader = await checkCmd.ExecuteReaderAsync())
                                         {
-                                            if (checkReader["ElectorId"] != DBNull.Value)
+                                            if (await checkReader.ReadAsync())
                                             {
-                                                recResult.ElectorId = Convert.ToInt64(checkReader["ElectorId"]);
-                                                recResult.RecordNo = Convert.ToInt64(checkReader["RecordNo"]);
-                                                recResult.Status = checkReader["Status"]?.ToString() ?? "SUCCESS";
+                                                if (checkReader["ElectorId"] != DBNull.Value && Convert.ToInt64(checkReader["ElectorId"]) > 0)
+                                                {
+                                                    recResult.ElectorId = Convert.ToInt64(checkReader["ElectorId"]);
+                                                    recResult.RecordNo = Convert.ToInt64(checkReader["RecordNo"]);
+                                                    recResult.Status = checkReader["Status"]?.ToString() ?? "SUCCESS";
+                                                    break;
+                                                }
                                             }
                                         }
                                     }
@@ -229,6 +234,7 @@ namespace PNGEC.API.Service.Voter
                                 cmd.Parameters.AddWithValue("@DeviceId", (object)request.DeviceId ?? DBNull.Value);
                                 cmd.Parameters.AddWithValue("@SevisPassId", (object)voter.SevisPassId ?? DBNull.Value);
                                 cmd.Parameters.AddWithValue("@SevisPassStatus", (object)voter.SevisPassStatus ?? DBNull.Value);
+                                AddVoterDemographicParameters(cmd, voter);
 
                                 using (var reader = await cmd.ExecuteReaderAsync())
                                 {
@@ -506,6 +512,53 @@ namespace PNGEC.API.Service.Voter
             }
 
             return response;
+        }
+
+        private static void AddVoterDemographicParameters(SqlCommand cmd, VoterModel voter)
+        {
+            cmd.Parameters.AddWithValue("@FatherFName", (object)voter.FatherFName ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@FatherLName", (object)voter.FatherLName ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@MotherFName", (object)voter.MotherFName ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@MotherLName", (object)voter.MotherLName ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@ProvOfBirthFK", (object)voter.ProvOfBirthFK ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@PlaceOfBirth", (object)voter.PlaceOfBirth ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@OccupationFK", (object)voter.OccupationFK ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@ClanFK", (object)voter.ClanFK ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@Clan", (object)voter.Clan ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@SubClan", (object)voter.SubClan ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@Address", (object)voter.Address ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@NatID", (object)voter.NatID ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@NatIDRecordNo", (object)voter.NatIDRecordNo ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@HouseFK", (object)voter.HouseFK ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@HouseSortOrder", (object)voter.HouseSortOrder ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@FamilyFK", (object)voter.FamilyFK ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@FamilySortOrder", (object)voter.FamilySortOrder ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@FamilyNumber", (object)voter.FamilyNumber ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@FamilyName", (object)voter.FamilyName ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@OpenElectorate", (object)voter.OpenElectorate ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@RestHouse", (object)voter.RestHouse ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@SectionNo", (object)voter.SectionNo ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@LotNo", (object)voter.LotNo ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@StreetName", (object)voter.StreetName ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@SuburbTownSettlement", (object)voter.SuburbTownSettlement ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@Comment", (object)voter.Comment ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@Lat", (object)voter.Lat ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@Long", (object)voter.Long ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@Religion", (object)voter.Religion ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@ClanId", (object)voter.ClanId ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@EnrolmentFormNumber", (object)voter.EnrolmentFormNumber ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@EnrolmentFormType", (object)voter.EnrolmentFormType ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@TempElectorId", (object)voter.TempElectorId ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@isYOB", (object)voter.isYOB ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@isPWD", (object)voter.isPWD ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@dpo", (object)voter.dpo ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@ElectorProfileImage", (object)voter.ElectorProfileImage ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@ElectorFormImage", (object)voter.ElectorFormImage ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@MKALocationId", (object)voter.MKALocationId ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@MKAWardId", (object)voter.MKAWardId ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@MKALLGId", (object)voter.MKALLGId ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@MKADistrictId", (object)voter.MKADistrictId ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@MKAClanId", (object)voter.MKAClanId ?? DBNull.Value);
         }
     }
 }
